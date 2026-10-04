@@ -1,0 +1,13 @@
+pydantic>=2.7.0,<3.0.0
+pydantic-settings>=2.2.0
+numpy>=1.26.0
+pyiceberg[sql-sqlite,pyarrow]>=0.7.1
+pyarrow>=16.0.0
+confluent-kafka>=2.4.0
+psycopg2-binary>=2.9.9
+sqlalchemy>=2.0.30
+rich>=13.7.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+duckdb>=1.0.0
+python-dateutil>=2.9.0

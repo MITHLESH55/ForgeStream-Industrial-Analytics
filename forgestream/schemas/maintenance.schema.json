@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ForgeStreamMaintenanceEvent",
+  "description": "Standardized schema for industrial maintenance events and work orders",
+  "type": "object",
+  "required": [
+    "maintenance_id",
+    "asset_id",
+    "maintenance_type",
+    "performed_at",
+    "technician_id",
+    "description"
+  ],
+  "properties": {
+    "maintenance_id": { "type": "string" },
+    "asset_id": { "type": "string" },
+    "maintenance_type": {
+      "type": "string",
+      "enum": ["PREVENTIVE", "CORRECTIVE", "INSPECTION", "EMERGENCY_REPAIR", "CALIBRATION"]
+    },
+    "performed_at": { "type": "string", "format": "date-time" },
+    "technician_id": { "type": "string" },
+    "description": { "type": "string" },
+    "cost_usd": { "type": "number", "minimum": 0.0 },
+    "downtime_hours": { "type": "number", "minimum": 0.0 }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forgestream"
+version = "0.1.0"
+description = "ForgeStream: Real-Time Distributed Analytics Platform for Industrial Asset Health Monitoring and Predictive Maintenance"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "ForgeStream Engineering Team" }
+]
+dependencies = [
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.0",
+    "numpy>=1.26.0",
+    "pyiceberg[sql-sqlite,pyarrow]>=0.7.1",
+    "pyarrow>=16.0.0",
+    "confluent-kafka>=2.4.0",
+    "psycopg2-binary>=2.9.9",
+    "sqlalchemy>=2.0.30",
+    "rich>=13.7.0",
+    "duckdb>=1.0.0",
+    "python-dateutil>=2.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+forgestream = "forgestream.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"

@@ -1,0 +1,14 @@
+{
+  "benchmark_timestamp": "2026-10-04T20:36:43.102362+00:00",
+  "memory_metrics": {
+    "current_heap_mb": 3.58,
+    "peak_heap_mb": 4.98
+  },
+  "pipeline_performance": {
+    "events_processed": 1000,
+    "wall_clock_time_sec": 6.0244,
+    "ingestion_throughput_hz": 165.99,
+    "average_event_latency_ms": 6.024
+  },
+  "status": "PASS \u2014 benchmarked on live environment"
+}

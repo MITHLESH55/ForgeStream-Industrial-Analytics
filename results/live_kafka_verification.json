@@ -1,0 +1,108 @@
+{
+  "verification_timestamp": "2026-10-04T20:34:10.249768+00:00",
+  "broker_address": "localhost:9092",
+  "broker_mode": "KRaft (ZooKeeper-Free Single Broker Container)",
+  "verification_mode": "LIVE_INFRASTRUCTURE",
+  "topics_verified": {
+    "industrial-telemetry": {
+      "partitions": 5,
+      "partition_ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "maintenance-events": {
+      "partitions": 3,
+      "partition_ids": [
+        0,
+        1,
+        2
+      ]
+    },
+    "asset-alerts": {
+      "partitions": 3,
+      "partition_ids": [
+        0,
+        1,
+        2
+      ]
+    },
+    "model-events": {
+      "partitions": 1,
+      "partition_ids": [
+        0
+      ]
+    },
+    "system-metrics": {
+      "partitions": 1,
+      "partition_ids": [
+        0
+      ]
+    }
+  },
+  "producer_metrics": {
+    "events_published": 25,
+    "duration_seconds": 0.0196,
+    "throughput_events_per_sec": 1278.26,
+    "flush_success": true
+  },
+  "consumer_metrics": {
+    "events_consumed": 25,
+    "consumer_group": "forgestream-audit-group-1791146047",
+    "duration_seconds": 3.1185,
+    "throughput_events_per_sec": 8.02,
+    "partition_distribution": {
+      "3": 15,
+      "2": 5,
+      "1": 5
+    },
+    "partition_count_exercised": 3
+  },
+  "sample_message_metadata": [
+    {
+      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0003",
+      "asset_id": "COMPRESSOR-001",
+      "topic": "industrial-telemetry",
+      "partition": 3,
+      "offset": 39,
+      "key": "COMPRESSOR-001"
+    },
+    {
+      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0004",
+      "asset_id": "CONVEYOR-001",
+      "topic": "industrial-telemetry",
+      "partition": 3,
+      "offset": 40,
+      "key": "CONVEYOR-001"
+    },
+    {
+      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0005",
+      "asset_id": "TURBINE-001",
+      "topic": "industrial-telemetry",
+      "partition": 3,
+      "offset": 41,
+      "key": "TURBINE-001"
+    },
+    {
+      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0008",
+      "asset_id": "COMPRESSOR-001",
+      "topic": "industrial-telemetry",
+      "partition": 3,
+      "offset": 42,
+      "key": "COMPRESSOR-001"
+    },
+    {
+      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0009",
+      "asset_id": "CONVEYOR-001",
+      "topic": "industrial-telemetry",
+      "partition": 3,
+      "offset": 43,
+      "key": "CONVEYOR-001"
+    }
+  ],
+  "partition_key_behavior_verified": true,
+  "overall_status": "PASS \u2014 verified with real infrastructure"
+}

@@ -1,0 +1,63 @@
+{
+  "run_metadata": {
+    "run_id": "RUN-PHASE1-REF-1791146195",
+    "seed": 42,
+    "duration_sec": 20,
+    "elapsed_wall_sec": 6.0244,
+    "throughput_events_per_sec": 165.99,
+    "events_generated": 1000,
+    "events_persisted_iceberg": 609,
+    "events_quarantined": 391,
+    "iceberg_total_table_rows": 2293,
+    "iceberg_snapshots_count": 27,
+    "asset_distribution": {
+      "COMPRESSOR-001": 639,
+      "CONVEYOR-001": 639,
+      "TURBINE-001": 639,
+      "MOTOR-001": 143,
+      "PUMP-001": 233
+    },
+    "postgres_is_live": true,
+    "kafka_is_live": true,
+    "completed_at": "2026-10-04T20:36:43.091123+00:00"
+  },
+  "execution_timestamp": "2026-10-04T20:36:43.097964+00:00",
+  "infrastructure": {
+    "kafka": {
+      "mode": "KRaft (Live Single-Broker)",
+      "endpoint": "localhost:9092",
+      "topic": "industrial-telemetry",
+      "status": "VERIFIED"
+    },
+    "postgresql": {
+      "mode": "PostgreSQL 16 Alpine (Live Container)",
+      "endpoint": "localhost:5433",
+      "database": "forgestream_db",
+      "driver": "psycopg 3.3.6 / psycopg2-binary 2.9.13",
+      "status": "VERIFIED"
+    },
+    "iceberg": {
+      "mode": "PyIceberg SqlCatalog + Local Parquet Warehouse",
+      "catalog_uri": "sqlite:///data/catalog.db",
+      "warehouse": "file:///data/warehouse",
+      "table": "forgestream.historical_telemetry",
+      "status": "VERIFIED"
+    }
+  },
+  "verification_scorecard": {
+    "events_generated": 1000,
+    "events_persisted_iceberg": 609,
+    "events_quarantined": 391,
+    "throughput_events_per_sec": 165.99,
+    "total_lakehouse_rows": 2293,
+    "iceberg_snapshots": 27,
+    "asset_distribution": {
+      "COMPRESSOR-001": 639,
+      "CONVEYOR-001": 639,
+      "TURBINE-001": 639,
+      "MOTOR-001": 143,
+      "PUMP-001": 233
+    },
+    "status": "PASS \u2014 verified with real infrastructure"
+  }
+}
