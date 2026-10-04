@@ -83,7 +83,18 @@ def test_live_kafka_broker_produce_consume_and_partitioning():
     assert metadata[settings.kafka.topic_maintenance]["partitions"] == 3
     assert metadata[settings.kafka.topic_alerts]["partitions"] == 3
 
-    # 2. Produce live messages across distinct assets to verify partition keying
+    # 2. Subscribe consumer first with latest offset to capture real-time live events
+    group_id = f"test-group-{int(time.time())}"
+    client_cfg = KafkaClientConfig(auto_offset_reset="latest")
+    consumer = TelemetryConsumer(config=client_cfg, group_id=group_id, force_fallback=False)
+    assert consumer.is_live is True
+    consumer.subscribe([settings.kafka.topic_telemetry])
+
+    # Allow group coordinator partition assignment
+    for _ in range(5):
+        consumer.consume_batch(max_messages=10, timeout_sec=0.2)
+
+    # 3. Produce live messages across distinct assets to verify partition keying
     assets = ["MOTOR-001", "PUMP-001", "COMPRESSOR-001", "CONVEYOR-001", "TURBINE-001"]
     test_run_tag = f"LIVE-TEST-{int(time.time())}"
 
@@ -108,21 +119,16 @@ def test_live_kafka_broker_produce_consume_and_partitioning():
 
     producer.flush(timeout_sec=5.0)
 
-    # 3. Consume from live topic using a dedicated test consumer group
-    group_id = f"test-group-{int(time.time())}"
-    consumer = TelemetryConsumer(group_id=group_id, force_fallback=False)
-    assert consumer.is_live is True
-    consumer.subscribe([settings.kafka.topic_telemetry])
-
+    # 4. Consume from live topic and verify keying & metadata
     consumed_test_events = []
-    for _ in range(12):
-        batch = consumer.consume_batch(max_messages=10, timeout_sec=1.0)
+    for _ in range(15):
+        batch = consumer.consume_batch(max_messages=10, timeout_sec=0.5)
         for msg in batch:
             if msg.get("event_id", "").startswith(test_run_tag):
                 consumed_test_events.append(msg)
         if len(consumed_test_events) >= 5:
             break
-        time.sleep(0.5)
+        time.sleep(0.1)
 
     consumer.close()
 

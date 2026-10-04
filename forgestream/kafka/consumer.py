@@ -103,8 +103,16 @@ class TelemetryConsumer:
             return results
 
         if self.is_live and self._consumer:
-            msgs = self._consumer.consume(num_messages=max_messages, timeout=timeout_sec)
-            for msg in msgs:
+            import time
+            deadline = time.perf_counter() + timeout_sec
+            while len(results) < max_messages:
+                remaining_time = max(0.01, deadline - time.perf_counter())
+                msg = self._consumer.poll(timeout=min(0.5, remaining_time))
+                if msg is None:
+                    if time.perf_counter() >= deadline:
+                        break
+                    continue
+
                 if msg.error():
                     if msg.error().code() != KafkaError._PARTITION_EOF:
                         logger.error(f"Consumer message error: {msg.error()}")
@@ -122,6 +130,9 @@ class TelemetryConsumer:
                     metrics.increment("events_consumed_kafka")
                 except Exception as e:
                     logger.warning(f"Malformed message in topic {msg.topic()} at offset {msg.offset()}: {e}")
+
+                if time.perf_counter() >= deadline:
+                    break
 
         return results
 
