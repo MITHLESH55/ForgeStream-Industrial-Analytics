@@ -1,0 +1,60 @@
+{
+  "classification_governance": {
+    "model_name": "RandomForestClassifier",
+    "task": "classification",
+    "promotion_status": "CHAMPION",
+    "is_promoted": true,
+    "gate_evaluations": {
+      "pr_auc": {
+        "value": 0.7666,
+        "threshold": 0.7,
+        "status": "PASS"
+      },
+      "recall": {
+        "value": 0.8512,
+        "threshold": 0.8,
+        "status": "PASS"
+      },
+      "roc_auc": {
+        "value": 0.9631,
+        "threshold": 0.75,
+        "status": "PASS"
+      },
+      "target_leakage_audit": {
+        "value": "PASS",
+        "required": "PASS",
+        "status": "PASS"
+      }
+    }
+  },
+  "regression_governance": {
+    "model_name": "RandomForestRegressor",
+    "task": "regression",
+    "promotion_status": "CHAMPION",
+    "is_promoted": true,
+    "gate_evaluations": {
+      "r2_score": {
+        "value": 0.398,
+        "threshold": 0.35,
+        "status": "PASS"
+      },
+      "rmse_to_cap_ratio": {
+        "value": 0.2562,
+        "threshold": 0.3,
+        "status": "PASS"
+      },
+      "accuracy_within_25pct": {
+        "value": 0.5355,
+        "threshold": 0.5,
+        "status": "PASS"
+      },
+      "target_leakage_audit": {
+        "value": "PASS",
+        "required": "PASS",
+        "status": "PASS"
+      }
+    }
+  },
+  "target_leakage_audit_status": "PASS",
+  "overall_governance_verdict": "CHAMPION_PROMOTED"
+}

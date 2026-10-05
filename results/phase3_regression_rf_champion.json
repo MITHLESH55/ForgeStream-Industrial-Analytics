@@ -1,0 +1,111 @@
+{
+  "model_name": "RandomForestRegressor",
+  "role": "CHAMPION",
+  "hyperparameters": {
+    "numTrees": 50,
+    "maxDepth": 8,
+    "seed": 42
+  },
+  "train_metrics": {
+    "rmse": 26.3073,
+    "mae": 19.4048,
+    "r2": 0.5624,
+    "accuracy_within_10pct": 0.4406,
+    "accuracy_within_25pct": 0.7568,
+    "asymmetric_penalty": 138.9907,
+    "rmse_to_cap_ratio": 0.2192,
+    "total_samples": 21000
+  },
+  "val_metrics": {
+    "rmse": 32.9523,
+    "mae": 25.9722,
+    "r2": 0.2486,
+    "accuracy_within_10pct": 0.2771,
+    "accuracy_within_25pct": 0.6917,
+    "asymmetric_penalty": 235.8963,
+    "rmse_to_cap_ratio": 0.2746,
+    "total_samples": 4800
+  },
+  "test_metrics": {
+    "rmse": 30.7447,
+    "mae": 25.7061,
+    "r2": 0.398,
+    "accuracy_within_10pct": 0.2926,
+    "accuracy_within_25pct": 0.5355,
+    "asymmetric_penalty": 15.541,
+    "rmse_to_cap_ratio": 0.2562,
+    "total_samples": 4200
+  },
+  "top_feature_importances": [
+    {
+      "feature": "operating_mode_idx",
+      "importance": 0.53556
+    },
+    {
+      "feature": "current_load_ratio",
+      "importance": 0.099395
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "importance": 0.035562
+    },
+    {
+      "feature": "load_pct",
+      "importance": 0.03413
+    },
+    {
+      "feature": "temperature",
+      "importance": 0.033776
+    },
+    {
+      "feature": "rolling_mean_current",
+      "importance": 0.033615
+    },
+    {
+      "feature": "rolling_std_vib",
+      "importance": 0.02982
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "importance": 0.027201
+    },
+    {
+      "feature": "health_score",
+      "importance": 0.024942
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "importance": 0.021748
+    }
+  ],
+  "training_time_sec": 5.728,
+  "mlflow_run_id": "16bde7825f9a4a539b3f5159c2f1a511",
+  "governance_promotion": {
+    "model_name": "RandomForestRegressor",
+    "task": "regression",
+    "promotion_status": "CHAMPION",
+    "is_promoted": true,
+    "gate_evaluations": {
+      "r2_score": {
+        "value": 0.398,
+        "threshold": 0.35,
+        "status": "PASS"
+      },
+      "rmse_to_cap_ratio": {
+        "value": 0.2562,
+        "threshold": 0.3,
+        "status": "PASS"
+      },
+      "accuracy_within_25pct": {
+        "value": 0.5355,
+        "threshold": 0.5,
+        "status": "PASS"
+      },
+      "target_leakage_audit": {
+        "value": "PASS",
+        "required": "PASS",
+        "status": "PASS"
+      }
+    }
+  }
+}

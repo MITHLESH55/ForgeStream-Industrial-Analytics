@@ -1,0 +1,31 @@
+{
+  "tracking_uri": "sqlite:///data/mlflow.db",
+  "experiment_name": "forgestream-phase3-predictive-maintenance",
+  "logged_runs": [
+    {
+      "run_id": "0c44552df08448b3aaf9d7acaa3b9f40",
+      "name": "classification_baseline_logistic_regression",
+      "task": "classification"
+    },
+    {
+      "run_id": "3f5896825c3047bba4b054f205299e39",
+      "name": "classification_advanced_random_forest",
+      "task": "classification"
+    },
+    {
+      "run_id": "760ac41e915544589015479343839292",
+      "name": "regression_baseline_linear_regression",
+      "task": "regression"
+    },
+    {
+      "run_id": "16bde7825f9a4a539b3f5159c2f1a511",
+      "name": "regression_advanced_random_forest",
+      "task": "regression"
+    }
+  ],
+  "artifacts_logged": [
+    "model_checkpoints",
+    "feature_attributions_json"
+  ],
+  "verification_status": "PASS"
+}

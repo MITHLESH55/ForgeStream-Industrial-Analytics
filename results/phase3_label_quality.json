@@ -1,0 +1,11 @@
+{
+  "rul_formulation": "y_RUL(t) = min(T_max, max(0.0, T_fail - t))",
+  "max_rul_cap_hours": 120.0,
+  "rul_bounded_verified": true,
+  "failure_horizon_formulation": "y_fail(t) = 1 if (T_fail - t) <= 24.0h and has_failure else 0",
+  "failure_horizon_hours": 24.0,
+  "failure_horizon_steps": 120,
+  "binary_integrity_verified": true,
+  "censored_healthy_lifecycles_handling": "Constant RUL = 120.0h, Failure Risk = 0 throughout",
+  "status": "PASS_MATHEMATICALLY_VERIFIED"
+}

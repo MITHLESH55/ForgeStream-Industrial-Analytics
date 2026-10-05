@@ -44,6 +44,13 @@ results/ref_warehouse/
 *.db
 *.log
 
+# MLflow & Spark local runtime artifacts
+mlruns/
+mlruns_artifacts/
+metastore_db/
+spark-warehouse/
+derby.log
+
 # Local environment configuration secrets
 .env
 .env.local

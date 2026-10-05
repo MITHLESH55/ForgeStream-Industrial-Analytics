@@ -1,0 +1,27 @@
+{
+  "total_records": 30000,
+  "total_runs": 50,
+  "total_assets": 5,
+  "asset_types": [
+    "MOTOR",
+    "PUMP",
+    "COMPRESSOR",
+    "CONVEYOR",
+    "TURBINE"
+  ],
+  "scenarios_evaluated": [
+    "SCENARIO_001_NORMAL_OPERATION",
+    "SCENARIO_002_BEARING_DEGRADATION",
+    "SCENARIO_003_OVERHEATING",
+    "SCENARIO_004_PRESSURE_ANOMALY",
+    "SCENARIO_005_ELECTRICAL_INSTABILITY",
+    "SCENARIO_006_SENSOR_MISSING_DATA",
+    "SCENARIO_007_DELAYED_EVENTS",
+    "SCENARIO_008_OUT_OF_ORDER_EVENTS"
+  ],
+  "failure_positive_records": 4477,
+  "failure_negative_records": 25523,
+  "positive_class_prevalence": 0.1492,
+  "max_rul_cap_hours": 120.0,
+  "prediction_horizon_steps": 120
+}

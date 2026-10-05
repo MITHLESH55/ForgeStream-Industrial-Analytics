@@ -1,0 +1,120 @@
+{
+  "model_name": "LogisticRegression",
+  "role": "BASELINE",
+  "hyperparameters": {
+    "regParam": 0.01,
+    "elasticNetParam": 0.5,
+    "maxIter": 100
+  },
+  "train_metrics": {
+    "pr_auc": 0.5889,
+    "roc_auc": 0.827,
+    "recall": 0.6538,
+    "precision": 0.5567,
+    "f1_score": 0.6014,
+    "f2_score": 0.6318,
+    "false_alarm_rate": 0.0917,
+    "missed_detection_rate": 0.3462,
+    "operational_cost": 12528.0,
+    "confusion_matrix": {
+      "tp": 2057,
+      "fp": 1638,
+      "tn": 16216,
+      "fn": 1089
+    },
+    "total_samples": 21000,
+    "positive_samples": 3146
+  },
+  "val_metrics": {
+    "pr_auc": 0.6187,
+    "roc_auc": 0.758,
+    "recall": 0.5714,
+    "precision": 0.6924,
+    "f1_score": 0.6261,
+    "f2_score": 0.5921,
+    "false_alarm_rate": 0.0544,
+    "missed_detection_rate": 0.4286,
+    "operational_cost": 3845.0,
+    "confusion_matrix": {
+      "tp": 484,
+      "fp": 215,
+      "tn": 3738,
+      "fn": 363
+    },
+    "total_samples": 4800,
+    "positive_samples": 847
+  },
+  "test_metrics": {
+    "pr_auc": 0.7253,
+    "roc_auc": 0.9654,
+    "recall": 1.0,
+    "precision": 0.5648,
+    "f1_score": 0.7218,
+    "f2_score": 0.8665,
+    "false_alarm_rate": 0.1004,
+    "missed_detection_rate": 0.0,
+    "operational_cost": 373.0,
+    "confusion_matrix": {
+      "tp": 484,
+      "fp": 373,
+      "tn": 3343,
+      "fn": 0
+    },
+    "total_samples": 4200,
+    "positive_samples": 484
+  },
+  "top_coefficients": [
+    {
+      "feature": "operating_mode_idx",
+      "coefficient": 1.049862,
+      "abs_coefficient": 1.049862
+    },
+    {
+      "feature": "rolling_std_temp",
+      "coefficient": -0.182275,
+      "abs_coefficient": 0.182275
+    },
+    {
+      "feature": "health_score",
+      "coefficient": -0.13089,
+      "abs_coefficient": 0.13089
+    },
+    {
+      "feature": "thermal_rise_rate",
+      "coefficient": -0.124184,
+      "abs_coefficient": 0.124184
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "coefficient": 0.123506,
+      "abs_coefficient": 0.123506
+    },
+    {
+      "feature": "asset_type_idx",
+      "coefficient": 0.116576,
+      "abs_coefficient": 0.116576
+    },
+    {
+      "feature": "rolling_std_pres",
+      "coefficient": 0.092142,
+      "abs_coefficient": 0.092142
+    },
+    {
+      "feature": "vibration",
+      "coefficient": 0.0753,
+      "abs_coefficient": 0.0753
+    },
+    {
+      "feature": "pressure_instability",
+      "coefficient": 0.066512,
+      "abs_coefficient": 0.066512
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "coefficient": -0.054425,
+      "abs_coefficient": 0.054425
+    }
+  ],
+  "training_time_sec": 39.154,
+  "mlflow_run_id": "0c44552df08448b3aaf9d7acaa3b9f40"
+}

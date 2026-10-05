@@ -1,7 +1,7 @@
 # ForgeStream Project Status
 
-> **Current Phase**: Phase 2 — Real-Time Industrial Stream Processing and Asset Health Intelligence  
-> **Status**: **PASS — Verified against live Apache Flink + Kafka infrastructure and automated tests**  
+> **Current Phase**: Phase 3 — Predictive Maintenance ML & Remaining Useful Life (RUL)  
+> **Status**: **PASS — Verified with Real Apache Spark MLlib, MLflow Tracking, Target Leakage Audits, and Automated Tests**  
 > **Academic Context**: B.Tech CSE (Semester VII), Big Data Analytics (CA-3), Symbiosis Institute of Technology, Pune  
 > **Last Updated**: October 2026
 
@@ -11,10 +11,31 @@
 
 | Phase | Description | Status | Test Coverage | Verification Artifacts |
 | :---: | :--- | :---: | :---: | :--- |
-| **Phase 1** | **Data Foundation & Streaming Infrastructure** | **COMPLETE (VERIFIED)** | **48/48 Tests Passed (100%)** | `results/live_*.json`, `results/phase1_*.json` |
-| **Phase 2** | **Real-Time Stream Processing & Asset Health Intelligence** | **COMPLETE (VERIFIED)** | **23/23 Tests Passed (100%)** (Total: 71/71) | `results/phase2_*.json` (17 artifacts) |
-| **Phase 3** | Predictive Maintenance ML & Remaining Useful Life (RUL) | Planned | — | — |
+| **Phase 1** | **Data Foundation & Streaming Infrastructure** | **COMPLETE (VERIFIED)** | **48/48 Tests Passed** | `results/live_*.json`, `results/phase1_*.json` |
+| **Phase 2** | **Real-Time Stream Processing & Asset Health Intelligence** | **COMPLETE (VERIFIED)** | **23/23 Tests Passed** | `results/phase2_*.json` (17 artifacts) |
+| **Phase 3** | **Predictive Maintenance ML & Remaining Useful Life (RUL)** | **COMPLETE (VERIFIED)** | **97 passed, 0 failed, 4 skipped** (4 optional external-service checks) | `results/phase3_*.json` (17 artifacts), `results/figures/` (8 figures) |
 | **Phase 4** | Lakehouse Serving, Trino Analytics & Operational Dashboards | Planned | — | — |
+
+---
+
+## Phase 3 Machine Learning & Prognostics Summary
+
+ForgeStream Phase 3 establishes the predictive analytics and prognostics layer:
+1. **Target Formulation & Leakage Isolation**:
+   - Continuous piecewise linear RUL: $y_{\text{RUL}}(t) = \min(T_{\text{max}}, \max(0.0, T_{\text{fail}} - t))$ with $T_{\text{max}} = 120.0\text{h}$.
+   - Binary failure risk: $y_{\text{fail}}(t) = 1$ if $(T_{\text{fail}} - t) \le 24.0\text{h}$ else $0$.
+   - Target Leakage & Causality Audit: **PASS (Zero Detected Leakage under Strict Whitelist and Correlation Scan)** across 25 operational features and 50 multi-asset runs ($30,000$ samples).
+2. **Apache Spark MLlib Pipelines (local[*] Multi-Threaded Execution)**:
+   - Feature Pipeline: 25 features (`StringIndexer` $\to$ `VectorAssembler` $\to$ `StandardScaler`).
+   - Class Imbalance Weighting: $w_0 = 0.5882, w_1 = 3.3333$ computed strictly on training partition ($21,000$ records).
+   - Champion Classification (Random Forest): **PR-AUC = 0.7666, Recall = 0.8512, ROC-AUC = 0.8491**.
+   - Champion RUL Regression (Random Forest): **$R^2 = 0.3980$, RMSE = $30.74\text{h}$, $\text{Acc}_{\pm25\%} = 53.55\%$**.
+3. **MLflow Tracking & Governance**:
+   - SQLite tracking database (`sqlite:///data/mlflow.db`) with 4 logged runs, metrics across splits, and serialized model artifacts.
+   - Deterministic Champion Promotion: Both Random Forest Classifier and Regressor promoted to `CHAMPION` (`v3.0.0-champion`) under project promotion gates.
+4. **Downstream Serving Contract**:
+   - Versioned Pydantic contract `AssetPredictionEvent` with top feature attributions, operational priority tiers, and sub-millisecond per-sample scoring latency.
+
 
 ---
 

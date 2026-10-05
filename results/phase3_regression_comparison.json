@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "model": "LinearRegression",
+    "rmse": 32.3898,
+    "mae": 27.586,
+    "r2": 0.3319,
+    "acc_10pct": 0.2352,
+    "acc_25pct": 0.5321,
+    "asymmetric_penalty": 17.6927
+  },
+  "champion": {
+    "model": "RandomForestRegressor",
+    "rmse": 30.7447,
+    "mae": 25.7061,
+    "r2": 0.398,
+    "acc_10pct": 0.2926,
+    "acc_25pct": 0.5355,
+    "asymmetric_penalty": 15.541
+  },
+  "improvement_pct": {
+    "r2_delta": 6.61,
+    "rmse_reduction_pct": 5.08,
+    "mae_reduction_pct": 6.81,
+    "acc_25pct_delta": 0.34
+  }
+}

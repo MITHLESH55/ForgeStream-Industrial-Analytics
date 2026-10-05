@@ -1,0 +1,67 @@
+{
+  "total_feature_count": 25,
+  "raw_sensors": [
+    "temperature",
+    "vibration",
+    "pressure",
+    "current",
+    "voltage",
+    "power",
+    "load_pct",
+    "ambient_temp"
+  ],
+  "categorical_features": [
+    "asset_type",
+    "operating_mode"
+  ],
+  "rolling_statistics": [
+    "rolling_mean_temp",
+    "rolling_std_temp",
+    "rolling_mean_vib",
+    "rolling_std_vib",
+    "rolling_mean_pres",
+    "rolling_std_pres",
+    "rolling_mean_current",
+    "rolling_std_current",
+    "rolling_mean_power",
+    "rolling_std_power"
+  ],
+  "rates_of_change": [
+    "thermal_rise_rate",
+    "vibration_slope"
+  ],
+  "dimensionless_indicators": [
+    "current_load_ratio",
+    "pressure_instability"
+  ],
+  "composite_health_index": [
+    "health_score"
+  ],
+  "assembled_features_order": [
+    "temperature",
+    "vibration",
+    "pressure",
+    "current",
+    "voltage",
+    "power",
+    "load_pct",
+    "ambient_temp",
+    "rolling_mean_temp",
+    "rolling_std_temp",
+    "rolling_mean_vib",
+    "rolling_std_vib",
+    "rolling_mean_pres",
+    "rolling_std_pres",
+    "rolling_mean_current",
+    "rolling_std_current",
+    "rolling_mean_power",
+    "rolling_std_power",
+    "thermal_rise_rate",
+    "vibration_slope",
+    "current_load_ratio",
+    "pressure_instability",
+    "health_score",
+    "asset_type_idx",
+    "operating_mode_idx"
+  ]
+}

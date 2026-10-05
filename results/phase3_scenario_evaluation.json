@@ -1,0 +1,34 @@
+{
+  "SCENARIO_003_OVERHEATING": {
+    "sample_count": 600,
+    "classification": {
+      "pr_auc": 0.4609,
+      "roc_auc": 0.863,
+      "recall": 0.9587,
+      "precision": 0.4622,
+      "f1_score": 0.6237,
+      "f2_score": 0.7891,
+      "false_alarm_rate": 0.2818,
+      "missed_detection_rate": 0.0413,
+      "operational_cost": 185.0,
+      "confusion_matrix": {
+        "tp": 116,
+        "fp": 135,
+        "tn": 344,
+        "fn": 5
+      },
+      "total_samples": 600,
+      "positive_samples": 121
+    },
+    "regression": {
+      "rmse": 17.9064,
+      "mae": 15.2505,
+      "r2": 0.7328,
+      "accuracy_within_10pct": 0.4333,
+      "accuracy_within_25pct": 0.9367,
+      "asymmetric_penalty": 5.3471,
+      "rmse_to_cap_ratio": 0.1492,
+      "total_samples": 600
+    }
+  }
+}

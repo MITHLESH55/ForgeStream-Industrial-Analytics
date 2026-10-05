@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "model": "LogisticRegression",
+    "pr_auc": 0.7253,
+    "roc_auc": 0.9654,
+    "recall": 1.0,
+    "precision": 0.5648,
+    "f1_score": 0.7218,
+    "f2_score": 0.8665,
+    "far": 0.1004,
+    "mdr": 0.0
+  },
+  "champion": {
+    "model": "RandomForestClassifier",
+    "pr_auc": 0.7666,
+    "roc_auc": 0.9631,
+    "recall": 0.8512,
+    "precision": 0.605,
+    "f1_score": 0.7073,
+    "f2_score": 0.7872,
+    "far": 0.0724,
+    "mdr": 0.1488
+  },
+  "improvement_pct": {
+    "pr_auc_delta": 4.13,
+    "recall_delta": -14.88,
+    "f1_delta": -1.45,
+    "mdr_reduction": -14.88
+  }
+}

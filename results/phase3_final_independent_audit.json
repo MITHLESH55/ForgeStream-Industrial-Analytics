@@ -1,0 +1,938 @@
+{
+  "test_integrity": {
+    "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+    "collected_tests": 101,
+    "passed_tests": 97,
+    "failed_tests": 0,
+    "skipped_tests": 4,
+    "skipped_reasons": [
+      "test_live_kafka_and_postgres_e2e_pipeline (Optional external live container)",
+      "test_flink_cluster_live_status (Optional external live container)",
+      "test_live_kafka_broker_produce_consume_and_partitioning (Optional external live container)",
+      "test_live_postgresql_backend_if_available (Optional external live container)"
+    ],
+    "execution_time_seconds": 67.04,
+    "environment_difference_explanation": "Python 3.12 is the global machine interpreter without ForgeStream virtualenv packages (pyspark, pyiceberg). Python 3.14 (C:\\Python314\\python.exe) is the authoritative virtual/system environment containing all Phase 1/2/3 dependencies."
+  },
+  "test_modification_audit": {
+    "file": "tests/unit/test_ml_metrics_evaluator.py",
+    "tested_function": "evaluate_regression_predictions",
+    "mock_y_true": [
+      100.0,
+      80.0,
+      50.0,
+      20.0,
+      0.0
+    ],
+    "mock_y_pred": [
+      95.0,
+      85.0,
+      48.0,
+      22.0,
+      5.0
+    ],
+    "absolute_errors": [
+      5.0,
+      5.0,
+      2.0,
+      2.0,
+      5.0
+    ],
+    "sum_of_errors": 19.0,
+    "number_of_samples": 5,
+    "mathematical_mae": 3.8,
+    "previous_expectation": 4.0,
+    "corrected_expectation": 3.8,
+    "justification": "The absolute errors are |100-95|=5, |80-85|=5, |50-48|=2, |20-22|=2, |0-5|=5. Sum is 19.0. Mean is 19.0 / 5 = 3.80. The previous value of 4.0 was an arithmetic mental typo in the test file itself. The production code was not modified and calls standard sklearn mean_absolute_error.",
+    "status": "JUSTIFIED_MATHEMATICAL_CORRECTION"
+  },
+  "spark_runtime": {
+    "spark_version": "4.2.0",
+    "jvm_version": "21.0.11",
+    "master": "local[*]",
+    "app_name": "ForgeStream-Predictive-Maintenance-ML",
+    "driver_memory": "3g",
+    "shuffle_partitions": 8,
+    "jvm_reflection_flags": "--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED",
+    "execution_mode": "Spark Local Mode (local[*])",
+    "mllib_classification_fit_time_ms": 9254.13,
+    "mllib_regression_fit_time_ms": 2209.68,
+    "total_verification_ms": 24002.79,
+    "stages_verified": [
+      "StringIndexer (asset_type, operating_mode)",
+      "VectorAssembler (25 features -> raw_features)",
+      "StandardScaler (raw_features -> features)",
+      "RandomForestClassifier (50 trees, max_depth=8)",
+      "RandomForestRegressor (50 trees, max_depth=8)",
+      "LogisticRegression (ElasticNet regParam=0.01)",
+      "LinearRegression (ElasticNet regParam=0.01)"
+    ],
+    "status": "PASS_AUTHENTIC_SPARK_MLLIB"
+  },
+  "mlflow_runtime": {
+    "tracking_uri": "sqlite:///data/mlflow.db",
+    "backend": "SQLite 3",
+    "experiments_found": 3,
+    "experiment_metadata": [
+      {
+        "experiment_id": 0,
+        "name": "Default",
+        "artifact_location": "file:C:/Users/mithlesh_2/Desktop/ForgeStream/mlruns/0"
+      },
+      {
+        "experiment_id": 1,
+        "name": "test_experiment",
+        "artifact_location": "file:C:/Users/mithlesh_2/Desktop/ForgeStream/mlruns/1"
+      },
+      {
+        "experiment_id": 2,
+        "name": "forgestream-phase3-predictive-maintenance",
+        "artifact_location": "file:C:/Users/mithlesh_2/Desktop/ForgeStream/mlruns/2"
+      }
+    ],
+    "total_runs_in_database": 17,
+    "total_parameters_logged": 72,
+    "total_metrics_logged": 475,
+    "runs": [
+      {
+        "run_id": "f143aacf11e5456bb0bbb65ac33d1de0",
+        "run_name": "test_run",
+        "status": "FINISHED",
+        "params_logged": 1,
+        "metrics_logged": 1,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "-c",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.runName": "test_run",
+          "model_type": "RandomForest"
+        }
+      },
+      {
+        "run_id": "62451c52ac4f4b83834d870d6ae33ed8",
+        "run_name": "classification_baseline_logistic_regression",
+        "status": "FINISHED",
+        "params_logged": 4,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LogisticRegression",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_baseline_logistic_regression"
+        }
+      },
+      {
+        "run_id": "5d25b1f731cc470abbf32371243001ad",
+        "run_name": "test_lr",
+        "status": "FINISHED",
+        "params_logged": 1,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "-c",
+          "mlflow.source.type": "LOCAL",
+          "model_type": "LogisticRegression",
+          "task": "classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "test_lr"
+        }
+      },
+      {
+        "run_id": "7eacd9fbe7b74acd93f5d1aadec09a62",
+        "run_name": "classification_baseline_logistic_regression",
+        "status": "FINISHED",
+        "params_logged": 4,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LogisticRegression",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_baseline_logistic_regression"
+        }
+      },
+      {
+        "run_id": "42035fe1b9a54247b5db2d8f92f76ac1",
+        "run_name": "lr_test",
+        "status": "FINISHED",
+        "params_logged": 0,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "-c",
+          "mlflow.source.type": "LOCAL",
+          "model_type": "LogisticRegression",
+          "task": "classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "lr_test"
+        }
+      },
+      {
+        "run_id": "170a34c1e8034ca3ac16a22e5ff66a0b",
+        "run_name": "classification_baseline_logistic_regression",
+        "status": "FINISHED",
+        "params_logged": 4,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LogisticRegression",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_baseline_logistic_regression"
+        }
+      },
+      {
+        "run_id": "b15c4336d10d45d8893d4e73a5f95c71",
+        "run_name": "classification_advanced_random_forest",
+        "status": "FINISHED",
+        "params_logged": 5,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "RandomForestClassifier",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_advanced_random_forest"
+        }
+      },
+      {
+        "run_id": "59ce93789364449783545cedbc1c0c7c",
+        "run_name": "regression_baseline_linear_regression",
+        "status": "FINISHED",
+        "params_logged": 4,
+        "metrics_logged": 24,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LinearRegression",
+          "task": "rul_regression",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "regression_baseline_linear_regression"
+        }
+      },
+      {
+        "run_id": "2cf3ea35d76a4473a4bb21f8623a33b7",
+        "run_name": "regression_advanced_random_forest",
+        "status": "FINISHED",
+        "params_logged": 5,
+        "metrics_logged": 24,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "RandomForestRegressor",
+          "task": "rul_regression",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "regression_advanced_random_forest"
+        }
+      },
+      {
+        "run_id": "25a0a3ca8b884e6f99675e79b8443c33",
+        "run_name": "classification_baseline_logistic_regression",
+        "status": "FINISHED",
+        "params_logged": 5,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LogisticRegression",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_baseline_logistic_regression"
+        }
+      },
+      {
+        "run_id": "34a57620caa64a0cb1393381de659838",
+        "run_name": "classification_advanced_random_forest",
+        "status": "FINISHED",
+        "params_logged": 6,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "RandomForestClassifier",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_advanced_random_forest"
+        }
+      },
+      {
+        "run_id": "f9ba457d215f4363a3a7434225ada436",
+        "run_name": "regression_baseline_linear_regression",
+        "status": "FINISHED",
+        "params_logged": 5,
+        "metrics_logged": 24,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LinearRegression",
+          "task": "rul_regression",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "regression_baseline_linear_regression"
+        }
+      },
+      {
+        "run_id": "2015f9eb71f241d0ad101e16aa8c594e",
+        "run_name": "regression_advanced_random_forest",
+        "status": "FINISHED",
+        "params_logged": 6,
+        "metrics_logged": 24,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "RandomForestRegressor",
+          "task": "rul_regression",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "regression_advanced_random_forest"
+        }
+      },
+      {
+        "run_id": "0c44552df08448b3aaf9d7acaa3b9f40",
+        "run_name": "classification_baseline_logistic_regression",
+        "status": "FINISHED",
+        "params_logged": 5,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LogisticRegression",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_baseline_logistic_regression"
+        }
+      },
+      {
+        "run_id": "3f5896825c3047bba4b054f205299e39",
+        "run_name": "classification_advanced_random_forest",
+        "status": "FINISHED",
+        "params_logged": 6,
+        "metrics_logged": 33,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "RandomForestClassifier",
+          "task": "binary_classification",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "classification_advanced_random_forest"
+        }
+      },
+      {
+        "run_id": "760ac41e915544589015479343839292",
+        "run_name": "regression_baseline_linear_regression",
+        "status": "FINISHED",
+        "params_logged": 5,
+        "metrics_logged": 24,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "LinearRegression",
+          "task": "rul_regression",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "regression_baseline_linear_regression"
+        }
+      },
+      {
+        "run_id": "16bde7825f9a4a539b3f5159c2f1a511",
+        "run_name": "regression_advanced_random_forest",
+        "status": "FINISHED",
+        "params_logged": 6,
+        "metrics_logged": 24,
+        "tags": {
+          "mlflow.user": "mithlesh_2",
+          "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+          "mlflow.source.type": "LOCAL",
+          "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+          "mlflow.source.git.branch": "main",
+          "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+          "model_type": "RandomForestRegressor",
+          "task": "rul_regression",
+          "framework": "Apache Spark MLlib",
+          "phase": "Phase 3 Predictive Maintenance",
+          "mlflow.runName": "regression_advanced_random_forest"
+        }
+      }
+    ],
+    "status": "PASS_AUTHENTIC_MLFLOW_DB"
+  },
+  "dataset_provenance": {
+    "file_path": "data/ml/telemetry_ml_features.parquet",
+    "total_records": 30000,
+    "total_columns": 37,
+    "total_runs": 50,
+    "total_assets": 5,
+    "asset_types": [
+      "MOTOR",
+      "PUMP",
+      "COMPRESSOR",
+      "CONVEYOR",
+      "TURBINE"
+    ],
+    "scenarios": [
+      "SCENARIO_001_NORMAL_OPERATION",
+      "SCENARIO_002_BEARING_DEGRADATION",
+      "SCENARIO_003_OVERHEATING",
+      "SCENARIO_004_PRESSURE_ANOMALY",
+      "SCENARIO_005_ELECTRICAL_INSTABILITY",
+      "SCENARIO_006_SENSOR_MISSING_DATA",
+      "SCENARIO_007_DELAYED_EVENTS",
+      "SCENARIO_008_OUT_OF_ORDER_EVENTS"
+    ],
+    "time_range_min": 1791300000.0,
+    "time_range_max": 1791383899.0,
+    "missing_values_count": 0,
+    "class_0_count": 25523,
+    "class_1_count": 4477,
+    "positive_prevalence_pct": 14.92,
+    "rul_min": 0.0,
+    "rul_max": 120.0,
+    "rul_mean": 75.53,
+    "rul_median": 81.0
+  },
+  "label_integrity": {
+    "rul_formulation": "y_RUL(t) = min(T_max, max(0.0, T_fail - t))",
+    "max_rul_cap_hours": 120.0,
+    "rul_bounded_verified": true,
+    "failure_horizon_formulation": "y_fail(t) = 1 if (T_fail - t) <= 24.0h and has_failure else 0",
+    "failure_horizon_hours": 24.0,
+    "failure_horizon_steps": 120,
+    "binary_integrity_verified": true,
+    "censored_healthy_lifecycles_handling": "Constant RUL = 120.0h, Failure Risk = 0 throughout",
+    "status": "PASS_MATHEMATICALLY_VERIFIED"
+  },
+  "leakage_audit": {
+    "audit_name": "ForgeStream Phase 3 Target Leakage & Causality Audit",
+    "overall_status": "PASS",
+    "checks": {
+      "feature_whitelist": {
+        "check": "feature_whitelist",
+        "status": "PASS",
+        "evaluated_feature_count": 25,
+        "leaked_columns": [],
+        "message": "Zero forbidden ground-truth columns detected."
+      },
+      "temporal_ordering": {
+        "check": "temporal_ordering",
+        "status": "PASS",
+        "evaluated_runs_count": 50,
+        "temporal_violations": [],
+        "message": "Strict chronological temporal separation verified."
+      },
+      "feature_correlations": {
+        "check": "feature_correlations",
+        "status": "PASS",
+        "max_feature_correlation": 0.2962,
+        "suspicious_features": [],
+        "feature_correlations": {
+          "temperature": 0.0715,
+          "vibration": 0.242,
+          "pressure": 0.011,
+          "current": 0.0293,
+          "voltage": 0.0107,
+          "power": 0.0167,
+          "load_pct": 0.0019,
+          "ambient_temp": 0.0,
+          "rolling_mean_temp": 0.07,
+          "rolling_std_temp": 0.1708,
+          "rolling_mean_vib": 0.2421,
+          "rolling_std_vib": 0.234,
+          "rolling_mean_pres": 0.0118,
+          "rolling_std_pres": 0.0964,
+          "rolling_mean_current": 0.029,
+          "rolling_std_current": 0.0512,
+          "rolling_mean_power": 0.0167,
+          "rolling_std_power": 0.0167,
+          "thermal_rise_rate": 0.1172,
+          "vibration_slope": 0.1996,
+          "current_load_ratio": 0.2528,
+          "pressure_instability": 0.0204,
+          "health_score": 0.2962
+        },
+        "message": "No artificial 1.0 correlations detected."
+      }
+    },
+    "summary": {
+      "total_records_audited": 30000,
+      "total_features_audited": 25,
+      "isolated_splits": [
+        "val",
+        "test",
+        "train"
+      ]
+    }
+  },
+  "temporal_split": {
+    "split_strategy": "Complete Asset Lifecycle Partitioning (split_by_complete_runs)",
+    "train_runs_count": 35,
+    "val_runs_count": 8,
+    "test_runs_count": 7,
+    "train_samples": 21000,
+    "val_samples": 4800,
+    "test_samples": 4200,
+    "disjoint_runs_verified": true,
+    "held_out_test_runs": [
+      "RUN-002-PUM-SCENARIO_002",
+      "RUN-003-COM-SCENARIO_003",
+      "RUN-009-CON-SCENARIO_001",
+      "RUN-014-CON-SCENARIO_006",
+      "RUN-034-CON-SCENARIO_002",
+      "RUN-037-PUM-SCENARIO_005",
+      "RUN-049-CON-SCENARIO_001"
+    ],
+    "status": "PASS_ZERO_CROSS_PARTITION_LEAKAGE"
+  },
+  "classification_validation": {
+    "model": "Spark MLlib RandomForestClassifier (50 trees, max_depth=8)",
+    "test_records": 4200,
+    "metrics": {
+      "pr_auc": 0.7666,
+      "roc_auc": 0.9631,
+      "recall": 0.8512,
+      "precision": 0.605,
+      "f1_score": 0.7073,
+      "f2_score": 0.7872,
+      "false_alarm_rate": 0.0724,
+      "missed_detection_rate": 0.1488,
+      "operational_cost": 989.0,
+      "confusion_matrix": {
+        "tp": 412,
+        "fp": 269,
+        "tn": 3447,
+        "fn": 72
+      },
+      "total_samples": 4200,
+      "positive_samples": 484
+    },
+    "status": "PASS_REPRODUCED"
+  },
+  "rul_validation": {
+    "model": "Spark MLlib RandomForestRegressor (50 trees, max_depth=8)",
+    "test_records": 4200,
+    "metrics": {
+      "rmse": 30.7447,
+      "mae": 25.7061,
+      "r2": 0.398,
+      "accuracy_within_10pct": 0.2926,
+      "accuracy_within_25pct": 0.5355,
+      "asymmetric_penalty": 15.541,
+      "rmse_to_cap_ratio": 0.2562,
+      "total_samples": 4200
+    },
+    "status": "PASS_REPRODUCED"
+  },
+  "cross_asset_validation": {
+    "PUMP": {
+      "sample_count": 1200,
+      "classification": {
+        "pr_auc": 0.9063,
+        "roc_auc": 0.9686,
+        "recall": 0.9132,
+        "precision": 0.6351,
+        "f1_score": 0.7492,
+        "f2_score": 0.8397,
+        "false_alarm_rate": 0.1326,
+        "missed_detection_rate": 0.0868,
+        "operational_cost": 337.0,
+        "confusion_matrix": {
+          "tp": 221,
+          "fp": 127,
+          "tn": 831,
+          "fn": 21
+        },
+        "total_samples": 1200,
+        "positive_samples": 242
+      },
+      "regression": {
+        "rmse": 15.576,
+        "mae": 12.1523,
+        "r2": 0.7978,
+        "accuracy_within_10pct": 0.5667,
+        "accuracy_within_25pct": 0.9508,
+        "asymmetric_penalty": 3.8145,
+        "rmse_to_cap_ratio": 0.1298,
+        "total_samples": 1200
+      }
+    },
+    "COMPRESSOR": {
+      "sample_count": 600,
+      "classification": {
+        "pr_auc": 0.4609,
+        "roc_auc": 0.863,
+        "recall": 0.9587,
+        "precision": 0.4622,
+        "f1_score": 0.6237,
+        "f2_score": 0.7891,
+        "false_alarm_rate": 0.2818,
+        "missed_detection_rate": 0.0413,
+        "operational_cost": 185.0,
+        "confusion_matrix": {
+          "tp": 116,
+          "fp": 135,
+          "tn": 344,
+          "fn": 5
+        },
+        "total_samples": 600,
+        "positive_samples": 121
+      },
+      "regression": {
+        "rmse": 17.9064,
+        "mae": 15.2505,
+        "r2": 0.7328,
+        "accuracy_within_10pct": 0.4333,
+        "accuracy_within_25pct": 0.9367,
+        "asymmetric_penalty": 5.3471,
+        "rmse_to_cap_ratio": 0.1492,
+        "total_samples": 600
+      }
+    },
+    "CONVEYOR": {
+      "sample_count": 2400,
+      "classification": {
+        "pr_auc": 0.8609,
+        "roc_auc": 0.99,
+        "recall": 0.6198,
+        "precision": 0.9146,
+        "f1_score": 0.7389,
+        "f2_score": 0.6625,
+        "false_alarm_rate": 0.0031,
+        "missed_detection_rate": 0.3802,
+        "operational_cost": 467.0,
+        "confusion_matrix": {
+          "tp": 75,
+          "fp": 7,
+          "tn": 2272,
+          "fn": 46
+        },
+        "total_samples": 2400,
+        "positive_samples": 121
+      },
+      "regression": {
+        "rmse": 38.1143,
+        "mae": 35.0969,
+        "r2": -0.4865,
+        "accuracy_within_10pct": 0.1204,
+        "accuracy_within_25pct": 0.2275,
+        "asymmetric_penalty": 23.9527,
+        "rmse_to_cap_ratio": 0.3176,
+        "total_samples": 2400
+      }
+    }
+  },
+  "scenario_validation": {
+    "SCENARIO_003_OVERHEATING": {
+      "sample_count": 600,
+      "classification": {
+        "pr_auc": 0.4609,
+        "roc_auc": 0.863,
+        "recall": 0.9587,
+        "precision": 0.4622,
+        "f1_score": 0.6237,
+        "f2_score": 0.7891,
+        "false_alarm_rate": 0.2818,
+        "missed_detection_rate": 0.0413,
+        "operational_cost": 185.0,
+        "confusion_matrix": {
+          "tp": 116,
+          "fp": 135,
+          "tn": 344,
+          "fn": 5
+        },
+        "total_samples": 600,
+        "positive_samples": 121
+      },
+      "regression": {
+        "rmse": 17.9064,
+        "mae": 15.2505,
+        "r2": 0.7328,
+        "accuracy_within_10pct": 0.4333,
+        "accuracy_within_25pct": 0.9367,
+        "asymmetric_penalty": 5.3471,
+        "rmse_to_cap_ratio": 0.1492,
+        "total_samples": 600
+      }
+    }
+  },
+  "model_governance": {
+    "classification_governance": {
+      "model_name": "rf_classifier_champion",
+      "task": "classification",
+      "promotion_status": "CHAMPION",
+      "is_promoted": true,
+      "gate_evaluations": {
+        "pr_auc": {
+          "value": 0.7666,
+          "threshold": 0.7,
+          "status": "PASS"
+        },
+        "recall": {
+          "value": 0.8512,
+          "threshold": 0.8,
+          "status": "PASS"
+        },
+        "roc_auc": {
+          "value": 0.9631,
+          "threshold": 0.75,
+          "status": "PASS"
+        },
+        "target_leakage_audit": {
+          "value": "PASS",
+          "required": "PASS",
+          "status": "PASS"
+        }
+      }
+    },
+    "regression_governance": {
+      "model_name": "rf_regressor_champion",
+      "task": "regression",
+      "promotion_status": "CHAMPION",
+      "is_promoted": true,
+      "gate_evaluations": {
+        "r2_score": {
+          "value": 0.398,
+          "threshold": 0.35,
+          "status": "PASS"
+        },
+        "rmse_to_cap_ratio": {
+          "value": 0.2562,
+          "threshold": 0.3,
+          "status": "PASS"
+        },
+        "accuracy_within_25pct": {
+          "value": 0.5355,
+          "threshold": 0.5,
+          "status": "PASS"
+        },
+        "target_leakage_audit": {
+          "value": "PASS",
+          "required": "PASS",
+          "status": "PASS"
+        }
+      }
+    },
+    "both_champions_promoted": true,
+    "status": "PASS_DETERMINISTIC_GATES"
+  },
+  "explainability": {
+    "method": "RandomForest Mean Decrease Impurity (MDI / Gini)",
+    "total_features": 25,
+    "top_10_attributions": [
+      {
+        "rank": 1,
+        "feature": "operating_mode_idx",
+        "importance": 0.4442
+      },
+      {
+        "rank": 2,
+        "feature": "health_score",
+        "importance": 0.0658
+      },
+      {
+        "rank": 3,
+        "feature": "current_load_ratio",
+        "importance": 0.0583
+      },
+      {
+        "rank": 4,
+        "feature": "rolling_mean_temp",
+        "importance": 0.0509
+      },
+      {
+        "rank": 5,
+        "feature": "rolling_mean_pres",
+        "importance": 0.046
+      },
+      {
+        "rank": 6,
+        "feature": "voltage",
+        "importance": 0.044
+      },
+      {
+        "rank": 7,
+        "feature": "vibration_slope",
+        "importance": 0.032
+      },
+      {
+        "rank": 8,
+        "feature": "rolling_mean_vib",
+        "importance": 0.0281
+      },
+      {
+        "rank": 9,
+        "feature": "temperature",
+        "importance": 0.0278
+      },
+      {
+        "rank": 10,
+        "feature": "rolling_mean_current",
+        "importance": 0.0254
+      }
+    ],
+    "causal_disclaimer": "Feature importance indicates statistical contribution to model prediction, not physical causality.",
+    "status": "PASS_VECTOR_ALIGNED"
+  },
+  "figure_provenance": {
+    "directory": "results/figures",
+    "figures": {
+      "fig1_roc_curves.png": {
+        "exists": true,
+        "size_kb": 143.68
+      },
+      "fig2_precision_recall_curves.png": {
+        "exists": true,
+        "size_kb": 135.78
+      },
+      "fig3_confusion_matrix_champion.png": {
+        "exists": true,
+        "size_kb": 81.79
+      },
+      "fig4_rul_predicted_vs_actual.png": {
+        "exists": true,
+        "size_kb": 650.59
+      },
+      "fig5_feature_importances_classification.png": {
+        "exists": true,
+        "size_kb": 107.46
+      },
+      "fig6_feature_importances_regression.png": {
+        "exists": true,
+        "size_kb": 110.45
+      },
+      "fig7_cross_asset_performance.png": {
+        "exists": true,
+        "size_kb": 89.73
+      },
+      "fig8_scenario_performance.png": {
+        "exists": true,
+        "size_kb": 91.94
+      }
+    },
+    "all_8_figures_exist": true,
+    "status": "PASS_VERIFIED"
+  },
+  "model_reload_inference": {
+    "scored_events_count": 10,
+    "sample_prediction_id": "PRED-7F43906C",
+    "sample_priority": "LOW",
+    "sample_rul": 91.53,
+    "sample_prob": 0.3136,
+    "average_inference_latency_ms": 35.73,
+    "status": "PASS_SCORING_VERIFIED"
+  },
+  "serving_contract": {
+    "schema_name": "AssetPredictionEvent",
+    "schema_version": "3.0.0",
+    "pydantic_v2_validated": true,
+    "json_serialization_roundtrip": true,
+    "status": "PASS_CONTRACT_VERIFIED"
+  },
+  "performance_profile": {
+    "dataset_total_samples": 30000,
+    "train_samples": 21000,
+    "test_samples": 4200,
+    "spark_master": "local[*]",
+    "classification_training_time_sec": 9.25,
+    "regression_training_time_sec": 2.21,
+    "per_sample_inference_latency_ms": 35.73,
+    "hardware_environment": "Local Multi-Threaded Spark Engine (Java 21 LTS)"
+  },
+  "security": {
+    "files_scanned": "forgestream/ml/**/*.py",
+    "sensitive_keywords": [
+      "password",
+      "secret_key",
+      "aws_secret_access_key",
+      "api_key",
+      "bearer "
+    ],
+    "violations_found": 0,
+    "status": "PASS_ZERO_CREDENTIALS_EXPOSED"
+  },
+  "documentation_consistency": {
+    "documented_files": [
+      "docs/ml/phase3_architecture.md",
+      "docs/ml/phase3_label_design.md",
+      "docs/ml/phase3_feature_registry.md",
+      "docs/ml/phase3_modeling.md",
+      "docs/ml/phase3_evaluation.md",
+      "docs/ml/phase3_mlflow.md",
+      "docs/ml/phase3_limitations.md",
+      "docs/report-evidence/CA3_EVIDENCE_MATRIX.md",
+      "PROJECT_STATUS.md"
+    ],
+    "all_files_exist": true,
+    "test_counts_exact_language": "97 passed, 4 skipped (101 total)",
+    "spark_execution_mode": "Apache Spark MLlib local[*]",
+    "status": "PASS_CONSISTENT"
+  },
+  "overall_verdict": "PASS \u2014 Verified with Real Apache Spark MLlib, MLflow Tracking, Target Leakage Audits, and Automated Tests"
+}

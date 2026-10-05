@@ -1,0 +1,138 @@
+{
+  "model_name": "RandomForestClassifier",
+  "role": "CHAMPION",
+  "hyperparameters": {
+    "numTrees": 50,
+    "maxDepth": 8,
+    "seed": 42
+  },
+  "train_metrics": {
+    "pr_auc": 0.8336,
+    "roc_auc": 0.952,
+    "recall": 0.6783,
+    "precision": 0.6434,
+    "f1_score": 0.6604,
+    "f2_score": 0.671,
+    "false_alarm_rate": 0.0663,
+    "missed_detection_rate": 0.3217,
+    "operational_cost": 11303.0,
+    "confusion_matrix": {
+      "tp": 2134,
+      "fp": 1183,
+      "tn": 16671,
+      "fn": 1012
+    },
+    "total_samples": 21000,
+    "positive_samples": 3146
+  },
+  "val_metrics": {
+    "pr_auc": 0.6097,
+    "roc_auc": 0.7501,
+    "recall": 0.5714,
+    "precision": 0.7819,
+    "f1_score": 0.6603,
+    "f2_score": 0.6039,
+    "false_alarm_rate": 0.0342,
+    "missed_detection_rate": 0.4286,
+    "operational_cost": 3765.0,
+    "confusion_matrix": {
+      "tp": 484,
+      "fp": 135,
+      "tn": 3818,
+      "fn": 363
+    },
+    "total_samples": 4800,
+    "positive_samples": 847
+  },
+  "test_metrics": {
+    "pr_auc": 0.7666,
+    "roc_auc": 0.9631,
+    "recall": 0.8512,
+    "precision": 0.605,
+    "f1_score": 0.7073,
+    "f2_score": 0.7872,
+    "false_alarm_rate": 0.0724,
+    "missed_detection_rate": 0.1488,
+    "operational_cost": 989.0,
+    "confusion_matrix": {
+      "tp": 412,
+      "fp": 269,
+      "tn": 3447,
+      "fn": 72
+    },
+    "total_samples": 4200,
+    "positive_samples": 484
+  },
+  "top_feature_importances": [
+    {
+      "feature": "operating_mode_idx",
+      "importance": 0.444244
+    },
+    {
+      "feature": "health_score",
+      "importance": 0.065808
+    },
+    {
+      "feature": "current_load_ratio",
+      "importance": 0.058329
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "importance": 0.050929
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "importance": 0.046032
+    },
+    {
+      "feature": "voltage",
+      "importance": 0.043994
+    },
+    {
+      "feature": "vibration_slope",
+      "importance": 0.031951
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "importance": 0.028071
+    },
+    {
+      "feature": "temperature",
+      "importance": 0.027835
+    },
+    {
+      "feature": "rolling_mean_current",
+      "importance": 0.025405
+    }
+  ],
+  "training_time_sec": 14.461,
+  "mlflow_run_id": "3f5896825c3047bba4b054f205299e39",
+  "governance_promotion": {
+    "model_name": "RandomForestClassifier",
+    "task": "classification",
+    "promotion_status": "CHAMPION",
+    "is_promoted": true,
+    "gate_evaluations": {
+      "pr_auc": {
+        "value": 0.7666,
+        "threshold": 0.7,
+        "status": "PASS"
+      },
+      "recall": {
+        "value": 0.8512,
+        "threshold": 0.8,
+        "status": "PASS"
+      },
+      "roc_auc": {
+        "value": 0.9631,
+        "threshold": 0.75,
+        "status": "PASS"
+      },
+      "target_leakage_audit": {
+        "value": "PASS",
+        "required": "PASS",
+        "status": "PASS"
+      }
+    }
+  }
+}

@@ -1,0 +1,467 @@
+{
+  "classification_rf_feature_importances": [
+    {
+      "feature": "operating_mode_idx",
+      "importance": 0.444244
+    },
+    {
+      "feature": "health_score",
+      "importance": 0.065808
+    },
+    {
+      "feature": "current_load_ratio",
+      "importance": 0.058329
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "importance": 0.050929
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "importance": 0.046032
+    },
+    {
+      "feature": "voltage",
+      "importance": 0.043994
+    },
+    {
+      "feature": "vibration_slope",
+      "importance": 0.031951
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "importance": 0.028071
+    },
+    {
+      "feature": "temperature",
+      "importance": 0.027835
+    },
+    {
+      "feature": "rolling_mean_current",
+      "importance": 0.025405
+    },
+    {
+      "feature": "rolling_std_temp",
+      "importance": 0.02487
+    },
+    {
+      "feature": "rolling_std_pres",
+      "importance": 0.023936
+    },
+    {
+      "feature": "pressure",
+      "importance": 0.0226
+    },
+    {
+      "feature": "vibration",
+      "importance": 0.017776
+    },
+    {
+      "feature": "thermal_rise_rate",
+      "importance": 0.016011
+    },
+    {
+      "feature": "pressure_instability",
+      "importance": 0.014842
+    },
+    {
+      "feature": "rolling_std_vib",
+      "importance": 0.012681
+    },
+    {
+      "feature": "rolling_mean_power",
+      "importance": 0.010491
+    },
+    {
+      "feature": "rolling_std_current",
+      "importance": 0.009027
+    },
+    {
+      "feature": "power",
+      "importance": 0.007519
+    },
+    {
+      "feature": "rolling_std_power",
+      "importance": 0.007462
+    },
+    {
+      "feature": "current",
+      "importance": 0.007086
+    },
+    {
+      "feature": "load_pct",
+      "importance": 0.001991
+    },
+    {
+      "feature": "asset_type_idx",
+      "importance": 0.001109
+    },
+    {
+      "feature": "ambient_temp",
+      "importance": 0.0
+    }
+  ],
+  "regression_rf_feature_importances": [
+    {
+      "feature": "operating_mode_idx",
+      "importance": 0.53556
+    },
+    {
+      "feature": "current_load_ratio",
+      "importance": 0.099395
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "importance": 0.035562
+    },
+    {
+      "feature": "load_pct",
+      "importance": 0.03413
+    },
+    {
+      "feature": "temperature",
+      "importance": 0.033776
+    },
+    {
+      "feature": "rolling_mean_current",
+      "importance": 0.033615
+    },
+    {
+      "feature": "rolling_std_vib",
+      "importance": 0.02982
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "importance": 0.027201
+    },
+    {
+      "feature": "health_score",
+      "importance": 0.024942
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "importance": 0.021748
+    },
+    {
+      "feature": "voltage",
+      "importance": 0.020212
+    },
+    {
+      "feature": "vibration",
+      "importance": 0.01284
+    },
+    {
+      "feature": "rolling_std_pres",
+      "importance": 0.011415
+    },
+    {
+      "feature": "power",
+      "importance": 0.010053
+    },
+    {
+      "feature": "thermal_rise_rate",
+      "importance": 0.009747
+    },
+    {
+      "feature": "current",
+      "importance": 0.009057
+    },
+    {
+      "feature": "rolling_std_power",
+      "importance": 0.008952
+    },
+    {
+      "feature": "pressure_instability",
+      "importance": 0.008844
+    },
+    {
+      "feature": "rolling_mean_power",
+      "importance": 0.007632
+    },
+    {
+      "feature": "rolling_std_temp",
+      "importance": 0.006921
+    },
+    {
+      "feature": "pressure",
+      "importance": 0.006811
+    },
+    {
+      "feature": "vibration_slope",
+      "importance": 0.006299
+    },
+    {
+      "feature": "rolling_std_current",
+      "importance": 0.004732
+    },
+    {
+      "feature": "asset_type_idx",
+      "importance": 0.000736
+    },
+    {
+      "feature": "ambient_temp",
+      "importance": 0.0
+    }
+  ],
+  "classification_lr_coefficients": [
+    {
+      "feature": "operating_mode_idx",
+      "coefficient": 1.049862,
+      "abs_coefficient": 1.049862
+    },
+    {
+      "feature": "rolling_std_temp",
+      "coefficient": -0.182275,
+      "abs_coefficient": 0.182275
+    },
+    {
+      "feature": "health_score",
+      "coefficient": -0.13089,
+      "abs_coefficient": 0.13089
+    },
+    {
+      "feature": "thermal_rise_rate",
+      "coefficient": -0.124184,
+      "abs_coefficient": 0.124184
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "coefficient": 0.123506,
+      "abs_coefficient": 0.123506
+    },
+    {
+      "feature": "asset_type_idx",
+      "coefficient": 0.116576,
+      "abs_coefficient": 0.116576
+    },
+    {
+      "feature": "rolling_std_pres",
+      "coefficient": 0.092142,
+      "abs_coefficient": 0.092142
+    },
+    {
+      "feature": "vibration",
+      "coefficient": 0.0753,
+      "abs_coefficient": 0.0753
+    },
+    {
+      "feature": "pressure_instability",
+      "coefficient": 0.066512,
+      "abs_coefficient": 0.066512
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "coefficient": -0.054425,
+      "abs_coefficient": 0.054425
+    },
+    {
+      "feature": "pressure",
+      "coefficient": -0.05337,
+      "abs_coefficient": 0.05337
+    },
+    {
+      "feature": "current",
+      "coefficient": -0.047233,
+      "abs_coefficient": 0.047233
+    },
+    {
+      "feature": "rolling_mean_current",
+      "coefficient": -0.035915,
+      "abs_coefficient": 0.035915
+    },
+    {
+      "feature": "voltage",
+      "coefficient": -0.020042,
+      "abs_coefficient": 0.020042
+    },
+    {
+      "feature": "power",
+      "coefficient": -0.010268,
+      "abs_coefficient": 0.010268
+    },
+    {
+      "feature": "rolling_mean_power",
+      "coefficient": -0.010268,
+      "abs_coefficient": 0.010268
+    },
+    {
+      "feature": "rolling_std_power",
+      "coefficient": -0.010268,
+      "abs_coefficient": 0.010268
+    },
+    {
+      "feature": "temperature",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "load_pct",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "ambient_temp",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "rolling_std_vib",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "rolling_std_current",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "vibration_slope",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    },
+    {
+      "feature": "current_load_ratio",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    }
+  ],
+  "regression_lr_coefficients": [
+    {
+      "feature": "pressure_instability",
+      "coefficient": -21.04695,
+      "abs_coefficient": 21.04695
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "coefficient": -18.831441,
+      "abs_coefficient": 18.831441
+    },
+    {
+      "feature": "temperature",
+      "coefficient": -18.685341,
+      "abs_coefficient": 18.685341
+    },
+    {
+      "feature": "asset_type_idx",
+      "coefficient": -17.821613,
+      "abs_coefficient": 17.821613
+    },
+    {
+      "feature": "operating_mode_idx",
+      "coefficient": -17.083464,
+      "abs_coefficient": 17.083464
+    },
+    {
+      "feature": "rolling_std_vib",
+      "coefficient": -14.35951,
+      "abs_coefficient": 14.35951
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "coefficient": 10.668791,
+      "abs_coefficient": 10.668791
+    },
+    {
+      "feature": "rolling_std_current",
+      "coefficient": -8.533125,
+      "abs_coefficient": 8.533125
+    },
+    {
+      "feature": "voltage",
+      "coefficient": 7.797145,
+      "abs_coefficient": 7.797145
+    },
+    {
+      "feature": "current_load_ratio",
+      "coefficient": -7.395082,
+      "abs_coefficient": 7.395082
+    },
+    {
+      "feature": "power",
+      "coefficient": 6.543097,
+      "abs_coefficient": 6.543097
+    },
+    {
+      "feature": "rolling_mean_power",
+      "coefficient": 6.543097,
+      "abs_coefficient": 6.543097
+    },
+    {
+      "feature": "rolling_std_power",
+      "coefficient": 6.543097,
+      "abs_coefficient": 6.543097
+    },
+    {
+      "feature": "vibration",
+      "coefficient": 4.887657,
+      "abs_coefficient": 4.887657
+    },
+    {
+      "feature": "health_score",
+      "coefficient": -4.453225,
+      "abs_coefficient": 4.453225
+    },
+    {
+      "feature": "current",
+      "coefficient": -2.641847,
+      "abs_coefficient": 2.641847
+    },
+    {
+      "feature": "rolling_mean_current",
+      "coefficient": -2.632507,
+      "abs_coefficient": 2.632507
+    },
+    {
+      "feature": "vibration_slope",
+      "coefficient": -2.134143,
+      "abs_coefficient": 2.134143
+    },
+    {
+      "feature": "load_pct",
+      "coefficient": 1.640399,
+      "abs_coefficient": 1.640399
+    },
+    {
+      "feature": "thermal_rise_rate",
+      "coefficient": 1.501096,
+      "abs_coefficient": 1.501096
+    },
+    {
+      "feature": "pressure",
+      "coefficient": 0.916466,
+      "abs_coefficient": 0.916466
+    },
+    {
+      "feature": "rolling_mean_pres",
+      "coefficient": 0.710349,
+      "abs_coefficient": 0.710349
+    },
+    {
+      "feature": "rolling_std_pres",
+      "coefficient": -0.471149,
+      "abs_coefficient": 0.471149
+    },
+    {
+      "feature": "rolling_std_temp",
+      "coefficient": -0.449498,
+      "abs_coefficient": 0.449498
+    },
+    {
+      "feature": "ambient_temp",
+      "coefficient": 0.0,
+      "abs_coefficient": 0.0
+    }
+  ],
+  "top_dominant_failure_indicators": [
+    "operating_mode_idx",
+    "health_score",
+    "current_load_ratio",
+    "rolling_mean_temp",
+    "rolling_mean_pres"
+  ]
+}

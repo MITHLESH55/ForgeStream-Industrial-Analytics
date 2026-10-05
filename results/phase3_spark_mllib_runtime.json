@@ -1,0 +1,23 @@
+{
+  "spark_version": "4.2.0",
+  "jvm_version": "21.0.11",
+  "master": "local[*]",
+  "app_name": "ForgeStream-Predictive-Maintenance-ML",
+  "driver_memory": "3g",
+  "shuffle_partitions": 8,
+  "jvm_reflection_flags": "--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED",
+  "execution_mode": "Spark Local Mode (local[*])",
+  "mllib_classification_fit_time_ms": 9254.13,
+  "mllib_regression_fit_time_ms": 2209.68,
+  "total_verification_ms": 24002.79,
+  "stages_verified": [
+    "StringIndexer (asset_type, operating_mode)",
+    "VectorAssembler (25 features -> raw_features)",
+    "StandardScaler (raw_features -> features)",
+    "RandomForestClassifier (50 trees, max_depth=8)",
+    "RandomForestRegressor (50 trees, max_depth=8)",
+    "LogisticRegression (ElasticNet regParam=0.01)",
+    "LinearRegression (ElasticNet regParam=0.01)"
+  ],
+  "status": "PASS_AUTHENTIC_SPARK_MLLIB"
+}

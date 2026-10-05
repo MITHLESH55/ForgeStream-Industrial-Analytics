@@ -15,7 +15,7 @@ from forgestream.schemas.telemetry_schema import ScenarioID, TelemetryEvent
 @pytest.fixture
 def temp_data_dir():
     """Provides a clean temporary directory for test storage artifacts."""
-    with tempfile.TemporaryDirectory() as tmp_dir:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp_dir:
         yield Path(tmp_dir)
 
 
@@ -29,3 +29,13 @@ def sample_generator():
 def sample_events(sample_generator):
     """Generates a batch of 25 deterministic events across all 5 assets."""
     return list(sample_generator.generate_events(duration_sec=1.0))
+
+
+@pytest.fixture(scope="session")
+def spark_session():
+    """Provides a shared local Apache Spark session for MLlib tests."""
+    from forgestream.ml.spark_session import get_spark_session, stop_spark_session
+    spark = get_spark_session()
+    yield spark
+    # Kept alive across session, teardown when pytest completes
+

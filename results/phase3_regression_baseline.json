@@ -1,0 +1,93 @@
+{
+  "model_name": "LinearRegression",
+  "role": "BASELINE",
+  "hyperparameters": {
+    "regParam": 0.01,
+    "elasticNetParam": 0.5,
+    "maxIter": 100
+  },
+  "train_metrics": {
+    "rmse": 29.7297,
+    "mae": 23.736,
+    "r2": 0.4411,
+    "accuracy_within_10pct": 0.2756,
+    "accuracy_within_25pct": 0.7127,
+    "asymmetric_penalty": 183.5574,
+    "rmse_to_cap_ratio": 0.2477,
+    "total_samples": 21000
+  },
+  "val_metrics": {
+    "rmse": 35.3229,
+    "mae": 28.3643,
+    "r2": 0.1366,
+    "accuracy_within_10pct": 0.2233,
+    "accuracy_within_25pct": 0.6462,
+    "asymmetric_penalty": 341.7245,
+    "rmse_to_cap_ratio": 0.2944,
+    "total_samples": 4800
+  },
+  "test_metrics": {
+    "rmse": 32.3898,
+    "mae": 27.586,
+    "r2": 0.3319,
+    "accuracy_within_10pct": 0.2352,
+    "accuracy_within_25pct": 0.5321,
+    "asymmetric_penalty": 17.6927,
+    "rmse_to_cap_ratio": 0.2699,
+    "total_samples": 4200
+  },
+  "top_coefficients": [
+    {
+      "feature": "pressure_instability",
+      "coefficient": -21.04695,
+      "abs_coefficient": 21.04695
+    },
+    {
+      "feature": "rolling_mean_temp",
+      "coefficient": -18.831441,
+      "abs_coefficient": 18.831441
+    },
+    {
+      "feature": "temperature",
+      "coefficient": -18.685341,
+      "abs_coefficient": 18.685341
+    },
+    {
+      "feature": "asset_type_idx",
+      "coefficient": -17.821613,
+      "abs_coefficient": 17.821613
+    },
+    {
+      "feature": "operating_mode_idx",
+      "coefficient": -17.083464,
+      "abs_coefficient": 17.083464
+    },
+    {
+      "feature": "rolling_std_vib",
+      "coefficient": -14.35951,
+      "abs_coefficient": 14.35951
+    },
+    {
+      "feature": "rolling_mean_vib",
+      "coefficient": 10.668791,
+      "abs_coefficient": 10.668791
+    },
+    {
+      "feature": "rolling_std_current",
+      "coefficient": -8.533125,
+      "abs_coefficient": 8.533125
+    },
+    {
+      "feature": "voltage",
+      "coefficient": 7.797145,
+      "abs_coefficient": 7.797145
+    },
+    {
+      "feature": "current_load_ratio",
+      "coefficient": -7.395082,
+      "abs_coefficient": 7.395082
+    }
+  ],
+  "training_time_sec": 5.86,
+  "mlflow_run_id": "760ac41e915544589015479343839292"
+}

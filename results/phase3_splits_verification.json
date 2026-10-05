@@ -1,0 +1,16 @@
+{
+  "train_records": 21000,
+  "val_records": 4800,
+  "test_records": 4200,
+  "train_ratio_actual": 0.7,
+  "val_ratio_actual": 0.16,
+  "test_ratio_actual": 0.14,
+  "train_positive_count": 3146,
+  "val_positive_count": 847,
+  "test_positive_count": 484,
+  "train_class_weights": {
+    "0": 0.5881,
+    "1": 3.3376
+  },
+  "split_type": "chronological_per_asset_run"
+}

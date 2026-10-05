@@ -1,0 +1,356 @@
+{
+  "tracking_uri": "sqlite:///data/mlflow.db",
+  "backend": "SQLite 3",
+  "experiments_found": 3,
+  "experiment_metadata": [
+    {
+      "experiment_id": 0,
+      "name": "Default",
+      "artifact_location": "file:C:/Users/mithlesh_2/Desktop/ForgeStream/mlruns/0"
+    },
+    {
+      "experiment_id": 1,
+      "name": "test_experiment",
+      "artifact_location": "file:C:/Users/mithlesh_2/Desktop/ForgeStream/mlruns/1"
+    },
+    {
+      "experiment_id": 2,
+      "name": "forgestream-phase3-predictive-maintenance",
+      "artifact_location": "file:C:/Users/mithlesh_2/Desktop/ForgeStream/mlruns/2"
+    }
+  ],
+  "total_runs_in_database": 17,
+  "total_parameters_logged": 72,
+  "total_metrics_logged": 475,
+  "runs": [
+    {
+      "run_id": "f143aacf11e5456bb0bbb65ac33d1de0",
+      "run_name": "test_run",
+      "status": "FINISHED",
+      "params_logged": 1,
+      "metrics_logged": 1,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "-c",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.runName": "test_run",
+        "model_type": "RandomForest"
+      }
+    },
+    {
+      "run_id": "62451c52ac4f4b83834d870d6ae33ed8",
+      "run_name": "classification_baseline_logistic_regression",
+      "status": "FINISHED",
+      "params_logged": 4,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LogisticRegression",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_baseline_logistic_regression"
+      }
+    },
+    {
+      "run_id": "5d25b1f731cc470abbf32371243001ad",
+      "run_name": "test_lr",
+      "status": "FINISHED",
+      "params_logged": 1,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "-c",
+        "mlflow.source.type": "LOCAL",
+        "model_type": "LogisticRegression",
+        "task": "classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "test_lr"
+      }
+    },
+    {
+      "run_id": "7eacd9fbe7b74acd93f5d1aadec09a62",
+      "run_name": "classification_baseline_logistic_regression",
+      "status": "FINISHED",
+      "params_logged": 4,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LogisticRegression",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_baseline_logistic_regression"
+      }
+    },
+    {
+      "run_id": "42035fe1b9a54247b5db2d8f92f76ac1",
+      "run_name": "lr_test",
+      "status": "FINISHED",
+      "params_logged": 0,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "-c",
+        "mlflow.source.type": "LOCAL",
+        "model_type": "LogisticRegression",
+        "task": "classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "lr_test"
+      }
+    },
+    {
+      "run_id": "170a34c1e8034ca3ac16a22e5ff66a0b",
+      "run_name": "classification_baseline_logistic_regression",
+      "status": "FINISHED",
+      "params_logged": 4,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LogisticRegression",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_baseline_logistic_regression"
+      }
+    },
+    {
+      "run_id": "b15c4336d10d45d8893d4e73a5f95c71",
+      "run_name": "classification_advanced_random_forest",
+      "status": "FINISHED",
+      "params_logged": 5,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "RandomForestClassifier",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_advanced_random_forest"
+      }
+    },
+    {
+      "run_id": "59ce93789364449783545cedbc1c0c7c",
+      "run_name": "regression_baseline_linear_regression",
+      "status": "FINISHED",
+      "params_logged": 4,
+      "metrics_logged": 24,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LinearRegression",
+        "task": "rul_regression",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "regression_baseline_linear_regression"
+      }
+    },
+    {
+      "run_id": "2cf3ea35d76a4473a4bb21f8623a33b7",
+      "run_name": "regression_advanced_random_forest",
+      "status": "FINISHED",
+      "params_logged": 5,
+      "metrics_logged": 24,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "RandomForestRegressor",
+        "task": "rul_regression",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "regression_advanced_random_forest"
+      }
+    },
+    {
+      "run_id": "25a0a3ca8b884e6f99675e79b8443c33",
+      "run_name": "classification_baseline_logistic_regression",
+      "status": "FINISHED",
+      "params_logged": 5,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LogisticRegression",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_baseline_logistic_regression"
+      }
+    },
+    {
+      "run_id": "34a57620caa64a0cb1393381de659838",
+      "run_name": "classification_advanced_random_forest",
+      "status": "FINISHED",
+      "params_logged": 6,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "RandomForestClassifier",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_advanced_random_forest"
+      }
+    },
+    {
+      "run_id": "f9ba457d215f4363a3a7434225ada436",
+      "run_name": "regression_baseline_linear_regression",
+      "status": "FINISHED",
+      "params_logged": 5,
+      "metrics_logged": 24,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LinearRegression",
+        "task": "rul_regression",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "regression_baseline_linear_regression"
+      }
+    },
+    {
+      "run_id": "2015f9eb71f241d0ad101e16aa8c594e",
+      "run_name": "regression_advanced_random_forest",
+      "status": "FINISHED",
+      "params_logged": 6,
+      "metrics_logged": 24,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "RandomForestRegressor",
+        "task": "rul_regression",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "regression_advanced_random_forest"
+      }
+    },
+    {
+      "run_id": "0c44552df08448b3aaf9d7acaa3b9f40",
+      "run_name": "classification_baseline_logistic_regression",
+      "status": "FINISHED",
+      "params_logged": 5,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LogisticRegression",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_baseline_logistic_regression"
+      }
+    },
+    {
+      "run_id": "3f5896825c3047bba4b054f205299e39",
+      "run_name": "classification_advanced_random_forest",
+      "status": "FINISHED",
+      "params_logged": 6,
+      "metrics_logged": 33,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "RandomForestClassifier",
+        "task": "binary_classification",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "classification_advanced_random_forest"
+      }
+    },
+    {
+      "run_id": "760ac41e915544589015479343839292",
+      "run_name": "regression_baseline_linear_regression",
+      "status": "FINISHED",
+      "params_logged": 5,
+      "metrics_logged": 24,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "LinearRegression",
+        "task": "rul_regression",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "regression_baseline_linear_regression"
+      }
+    },
+    {
+      "run_id": "16bde7825f9a4a539b3f5159c2f1a511",
+      "run_name": "regression_advanced_random_forest",
+      "status": "FINISHED",
+      "params_logged": 6,
+      "metrics_logged": 24,
+      "tags": {
+        "mlflow.user": "mithlesh_2",
+        "mlflow.source.name": "scripts/run_phase3_ml_pipeline.py",
+        "mlflow.source.type": "LOCAL",
+        "mlflow.source.git.commit": "c49bc5155e34d09e8bc0c1a66543075af1d15ab1",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.repoURL": "https://github.com/MITHLESH55/ForgeStream-Industrial-Analytics.git",
+        "model_type": "RandomForestRegressor",
+        "task": "rul_regression",
+        "framework": "Apache Spark MLlib",
+        "phase": "Phase 3 Predictive Maintenance",
+        "mlflow.runName": "regression_advanced_random_forest"
+      }
+    }
+  ],
+  "status": "PASS_AUTHENTIC_MLFLOW_DB"
+}
