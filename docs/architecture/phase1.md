@@ -2,7 +2,7 @@
 
 ## 1. System Overview
 
-ForgeStream Phase 1 provides the end-to-end data foundation and real-time streaming pipeline for industrial equipment telemetry. Industrial plants generate continuous streams of high-frequency sensor readings (vibration, temperature, fluid pressure, rotational velocity, current, voltage, and electrical power). The platform ingests, validates, routes, stores, and audits this telemetry with mathematical rigor and ACID consistency.
+ForgeStream Phase 1 provides the end-to-end data foundation and real-time streaming pipeline for industrial equipment telemetry as an engineering-grade prototype and local reproducible implementation. Industrial plants generate continuous streams of high-frequency sensor readings (vibration, temperature, fluid pressure, rotational velocity, current, voltage, and electrical power). The platform ingests, validates, routes, stores, and audits this telemetry with mathematical rigor, atomic Iceberg snapshot commits, and relational metadata persistence.
 
 ```text
 +------------------------+      +-----------------------+      +-------------------------+

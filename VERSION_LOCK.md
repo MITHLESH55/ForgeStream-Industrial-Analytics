@@ -22,12 +22,15 @@ This document records the exact, tested hardware, operating system, runtime, lib
 
 | Tool / Runtime | Version | Notes |
 | :--- | :--- | :--- |
-| **Python** | 3.14.7 (`C:\Python314\python.exe`) | Core language runtime |
+| **Python (Authoritative)** | 3.14.7 (`C:\Python314\python.exe`) | Core project runtime containing all installed dependencies |
 | **pip** | 26.2.1 | Package installer |
+| **Test Runner Command** | `python -m pytest tests/ -v` | Explicitly targets Python 3.14.7 environment |
 | **Java JDK** | OpenJDK 21.0.11 LTS (Temurin build 21.0.11+10-LTS) | Installed and verified |
 | **Docker Engine** | 29.6.2 (build dfc4efb) | Local container runtime |
 | **Docker Compose** | v5.3.1 | Container orchestrator |
 | **RTK Proxy** | 0.44.2 | Token-optimized CLI harness |
+
+> **Note on Test Environment Execution**: The project dependencies (`pyiceberg`, `confluent-kafka`, `psycopg2-binary`, etc.) are installed in the Python 3.14.7 runtime (`C:\Python314\python.exe`). Running `python -m pytest tests/ -v` executes within this authoritative environment. Invoking `pytest` directly uses the PATH-default Python 3.12 interpreter where project packages are not installed, resulting in module import errors during collection.
 
 ---
 

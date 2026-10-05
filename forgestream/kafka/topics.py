@@ -93,7 +93,7 @@ class TopicManager:
         Idempotently creates all required ForgeStream topics.
         Returns a dictionary mapping topic names to status ("created", "already_exists", "error").
         """
-        if self.force_fallback or not self.admin:
+        if self.force_fallback or self.admin is None:
             return {td.name: "fallback_queue" for td in TOPIC_DEFINITIONS}
 
         results = {}
@@ -143,7 +143,7 @@ class TopicManager:
 
     def list_topic_metadata(self) -> Dict[str, Dict]:
         """Returns details on partitions and brokers."""
-        if self.force_fallback or not self.admin:
+        if self.force_fallback or self.admin is None:
             return {td.name: {"partitions": td.num_partitions, "partition_ids": list(range(td.num_partitions))} for td in TOPIC_DEFINITIONS}
 
         try:

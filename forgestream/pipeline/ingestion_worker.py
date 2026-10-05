@@ -97,6 +97,9 @@ class IngestionWorker:
                     except Exception as e:
                         logger.warning(f"Failed to forward quarantine to DLQ: {e}")
 
+        if self.dlq_producer and quarantined_records:
+            self.dlq_producer.flush(timeout_sec=2.0)
+
         # Persist valid events to Apache Iceberg lakehouse
         if valid_events:
             try:

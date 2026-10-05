@@ -1,9 +1,9 @@
 {
-  "campaign_timestamp": "2026-10-04T20:36:43.099764+00:00",
+  "campaign_timestamp": "2026-10-05T12:20:12.554928+00:00",
   "rules_tested_count": 13,
   "evaluations": [
     {
-      "target_rule": "DQ-001",
+      "target_rule": "DQ-001_REQUIRED_FIELDS_MISSING",
       "is_valid": false,
       "violated_rules": [
         "DQ-001_REQUIRED_FIELDS_MISSING",
@@ -15,167 +15,135 @@
       "errors": [
         "Missing required fields: asset_type, current, event_id, load, operating_mode, power, pressure, rpm, sequence_number, timestamp, vibration, voltage",
         "Timestamp is missing, non-numeric, or NaN/Inf",
-        "Unsupported operating mode: 'None'. Must be one of {'NORMAL', 'MAINTENANCE', 'IDLE', 'DEGRADED', 'HIGH_LOAD', 'STARTUP'}"
+        "Unsupported operating mode: 'None'. Must be one of {'MAINTENANCE', 'HIGH_LOAD', 'DEGRADED', 'NORMAL', 'IDLE', 'STARTUP'}"
       ]
     },
     {
-      "target_rule": "DQ-002",
+      "target_rule": "DQ-002_INVALID_DATA_TYPES",
       "is_valid": false,
       "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-002_INVALID_DATA_TYPES",
+        "DQ-002_INVALID_DATA_TYPES"
+      ],
+      "is_delayed": true,
+      "is_out_of_order": false,
+      "errors": [
+        "Field 'temperature' must be numeric, got str"
+      ]
+    },
+    {
+      "target_rule": "DQ-003_INVALID_TIMESTAMP",
+      "is_valid": false,
+      "violated_rules": [
         "DQ-003_INVALID_TIMESTAMP"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, vibration, voltage",
-        "Field 'temperature' must be numeric, got str",
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)"
-      ]
-    },
-    {
-      "target_rule": "DQ-003",
-      "is_valid": false,
-      "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-003_INVALID_TIMESTAMP"
-      ],
-      "is_delayed": true,
-      "is_out_of_order": false,
-      "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, vibration, voltage",
         "Timestamp must be positive epoch, got -500.0"
       ]
     },
     {
-      "target_rule": "DQ-004",
+      "target_rule": "DQ-004_UNSUPPORTED_OPERATING_MODE",
       "is_valid": false,
       "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-003_INVALID_TIMESTAMP",
         "DQ-004_UNSUPPORTED_OPERATING_MODE"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, vibration, voltage",
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)",
-        "Unsupported operating mode: 'INVALID_MODE'. Must be one of {'NORMAL', 'MAINTENANCE', 'IDLE', 'DEGRADED', 'HIGH_LOAD', 'STARTUP'}"
+        "Unsupported operating mode: 'INVALID_MODE'. Must be one of {'MAINTENANCE', 'HIGH_LOAD', 'DEGRADED', 'NORMAL', 'IDLE', 'STARTUP'}"
       ]
     },
     {
-      "target_rule": "DQ-005",
+      "target_rule": "DQ-005_IMPOSSIBLE_NUMERIC_VALUE",
       "is_valid": false,
       "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-003_INVALID_TIMESTAMP",
         "DQ-005_IMPOSSIBLE_NUMERIC_VALUE"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, vibration, voltage",
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)",
         "Metric 'temperature' contains non-finite float value (nan)"
       ]
     },
     {
-      "target_rule": "DQ-006",
+      "target_rule": "DQ-006_OUT_OF_RANGE_RPM",
+      "is_valid": true,
+      "violated_rules": [],
+      "is_delayed": true,
+      "is_out_of_order": false,
+      "errors": []
+    },
+    {
+      "target_rule": "DQ-007_NEGATIVE_VIBRATION",
       "is_valid": false,
       "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-003_INVALID_TIMESTAMP"
+        "DQ-007_NEGATIVE_VIBRATION",
+        "DQ-010_DUPLICATE_LOGICAL_EVENT"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, vibration, voltage",
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)"
+        "Negative vibration -2.5 mm/s is physically invalid",
+        "Duplicate logical event for asset 'M-1' at timestamp 1710000000.0"
       ]
     },
     {
-      "target_rule": "DQ-007",
+      "target_rule": "DQ-008_INVALID_ELECTRICAL_VALUES",
       "is_valid": false,
       "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-003_INVALID_TIMESTAMP",
-        "DQ-007_NEGATIVE_VIBRATION"
+        "DQ-008_INVALID_ELECTRICAL_VALUES",
+        "DQ-010_DUPLICATE_LOGICAL_EVENT"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, voltage",
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)",
-        "Negative vibration -2.5 mm/s is physically invalid"
+        "Negative voltage -50.0 V is invalid",
+        "Duplicate logical event for asset 'M-1' at timestamp 1710000000.0"
       ]
     },
     {
-      "target_rule": "DQ-008",
+      "target_rule": "DQ-009_DUPLICATE_EVENT_ID",
       "is_valid": false,
       "violated_rules": [
-        "DQ-001_REQUIRED_FIELDS_MISSING",
-        "DQ-003_INVALID_TIMESTAMP",
-        "DQ-008_INVALID_ELECTRICAL_VALUES"
+        "DQ-010_DUPLICATE_LOGICAL_EVENT"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Missing required fields: current, load, power, pressure, sequence_number, vibration",
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)",
-        "Negative voltage -50.0 V is invalid"
+        "Duplicate logical event for asset 'M-1' at timestamp 1710000000.0"
       ]
     },
     {
-      "target_rule": "DQ-009",
+      "target_rule": "DQ-009_DUPLICATE_EVENT_ID",
+      "is_valid": true,
+      "violated_rules": [],
+      "is_delayed": true,
+      "is_out_of_order": false,
+      "errors": []
+    },
+    {
+      "target_rule": "DQ-010_DUPLICATE_LOGICAL_EVENT",
+      "is_valid": true,
+      "violated_rules": [],
+      "is_delayed": true,
+      "is_out_of_order": false,
+      "errors": []
+    },
+    {
+      "target_rule": "DQ-010_DUPLICATE_LOGICAL_EVENT",
       "is_valid": false,
       "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
+        "DQ-010_DUPLICATE_LOGICAL_EVENT"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)"
+        "Duplicate logical event for asset 'P-1' at timestamp 1710000500.0"
       ]
     },
     {
-      "target_rule": "DQ-009",
-      "is_valid": false,
-      "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
-      ],
-      "is_delayed": true,
-      "is_out_of_order": false,
-      "errors": [
-        "Timestamp 101.0 is outside plausible operational range (2020-2035)"
-      ]
-    },
-    {
-      "target_rule": "DQ-010",
-      "is_valid": false,
-      "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
-      ],
-      "is_delayed": true,
-      "is_out_of_order": false,
-      "errors": [
-        "Timestamp 500.0 is outside plausible operational range (2020-2035)"
-      ]
-    },
-    {
-      "target_rule": "DQ-010",
-      "is_valid": false,
-      "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
-      ],
-      "is_delayed": true,
-      "is_out_of_order": false,
-      "errors": [
-        "Timestamp 500.0 is outside plausible operational range (2020-2035)"
-      ]
-    },
-    {
-      "target_rule": "DQ-011",
+      "target_rule": "DQ-011_MALFORMED_JSON",
       "is_valid": false,
       "violated_rules": [
         "DQ-011_MALFORMED_JSON"
@@ -187,40 +155,32 @@
       ]
     },
     {
-      "target_rule": "DQ-012",
+      "target_rule": "DQ-012_DELAYED_EVENT",
       "is_valid": false,
       "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
+        "DQ-010_DUPLICATE_LOGICAL_EVENT"
       ],
       "is_delayed": true,
       "is_out_of_order": false,
       "errors": [
-        "Timestamp 1000.0 is outside plausible operational range (2020-2035)"
+        "Duplicate logical event for asset 'M-1' at timestamp 1710000000.0"
       ]
     },
     {
-      "target_rule": "DQ-013",
-      "is_valid": false,
-      "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
-      ],
+      "target_rule": "DQ-013_OUT_OF_ORDER_SEQUENCE",
+      "is_valid": true,
+      "violated_rules": [],
       "is_delayed": true,
       "is_out_of_order": false,
-      "errors": [
-        "Timestamp 100.0 is outside plausible operational range (2020-2035)"
-      ]
+      "errors": []
     },
     {
-      "target_rule": "DQ-013",
-      "is_valid": false,
-      "violated_rules": [
-        "DQ-003_INVALID_TIMESTAMP"
-      ],
+      "target_rule": "DQ-013_OUT_OF_ORDER_SEQUENCE",
+      "is_valid": true,
+      "violated_rules": [],
       "is_delayed": true,
-      "is_out_of_order": false,
-      "errors": [
-        "Timestamp 101.0 is outside plausible operational range (2020-2035)"
-      ]
+      "is_out_of_order": true,
+      "errors": []
     }
   ],
   "quarantine_routing_verified": true,

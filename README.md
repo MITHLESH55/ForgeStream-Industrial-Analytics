@@ -14,8 +14,8 @@ Phase 1 establishes the **Data Foundation and Streaming Infrastructure**, provid
 - **Physics-Correlated Industrial Simulator**: Deterministic generation across 5 asset types and 8 operational/degradation scenarios with strict ground-truth metadata isolation.
 - **Apache Kafka Streaming Bus**: Low-latency message backbone with topic provisioning, resilient producers with automatic fallback, and partition keying on `asset_id`.
 - **13-Rule Data Quality Engine**: Strict validation layer evaluating syntax, semantics, physical bounds, timestamp integrity, duplicate detection, and sequence ordering, routing defective records to quarantine.
-- **Pure Python Apache Iceberg Lakehouse**: Zero-JVM historical storage powered by PyIceberg 0.12.0 and PyArrow 25.0.1, featuring ACID snapshot commits, metadata lineage, and identity partitioning.
-- **PostgreSQL Operational Metadata Store**: ACID repository tracking asset registries, maintenance logs, ingestion runs, validation audits, and quarantine records.
+- **Pure Python Apache Iceberg Lakehouse**: JVM-free Python Iceberg integration powered by PyIceberg 0.12.0 and PyArrow 25.0.1, featuring atomic Iceberg snapshot commits, metadata lineage, and identity partitioning.
+- **PostgreSQL Operational Metadata Store**: Relational repository tracking asset registries, maintenance logs, ingestion runs, validation audits, and quarantine records.
 
 ---
 

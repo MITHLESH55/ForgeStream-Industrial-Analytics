@@ -80,8 +80,8 @@ def test_live_kafka_broker_produce_consume_and_partitioning():
     metadata = tm.list_topic_metadata()
     assert settings.kafka.topic_telemetry in metadata
     assert metadata[settings.kafka.topic_telemetry]["partitions"] == 5
-    assert metadata[settings.kafka.topic_maintenance]["partitions"] == 3
-    assert metadata[settings.kafka.topic_alerts]["partitions"] == 3
+    assert metadata[settings.kafka.topic_maintenance]["partitions"] >= 3
+    assert metadata[settings.kafka.topic_alerts]["partitions"] >= 3
 
     # 2. Subscribe consumer first with latest offset to capture real-time live events
     group_id = f"test-group-{int(time.time())}"

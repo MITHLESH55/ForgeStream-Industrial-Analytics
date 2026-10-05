@@ -1,17 +1,13 @@
 {
-  "verification_timestamp": "2026-10-04T20:34:10.249768+00:00",
+  "verification_timestamp": "2026-10-05T12:20:06.376521+00:00",
   "broker_address": "localhost:9092",
   "broker_mode": "KRaft (ZooKeeper-Free Single Broker Container)",
   "verification_mode": "LIVE_INFRASTRUCTURE",
   "topics_verified": {
-    "industrial-telemetry": {
-      "partitions": 5,
+    "model-events": {
+      "partitions": 1,
       "partition_ids": [
-        0,
-        1,
-        2,
-        3,
-        4
+        0
       ]
     },
     "maintenance-events": {
@@ -22,18 +18,24 @@
         2
       ]
     },
-    "asset-alerts": {
-      "partitions": 3,
+    "industrial-telemetry": {
+      "partitions": 5,
       "partition_ids": [
         0,
         1,
-        2
+        2,
+        3,
+        4
       ]
     },
-    "model-events": {
-      "partitions": 1,
+    "asset-alerts": {
+      "partitions": 5,
       "partition_ids": [
-        0
+        0,
+        1,
+        2,
+        3,
+        4
       ]
     },
     "system-metrics": {
@@ -45,62 +47,69 @@
   },
   "producer_metrics": {
     "events_published": 25,
-    "duration_seconds": 0.0196,
-    "throughput_events_per_sec": 1278.26,
+    "duration_seconds": 0.0048,
+    "throughput_events_per_sec": 5173.52,
     "flush_success": true
   },
   "consumer_metrics": {
     "events_consumed": 25,
-    "consumer_group": "forgestream-audit-group-1791146047",
-    "duration_seconds": 3.1185,
-    "throughput_events_per_sec": 8.02,
+    "consumer_group": "forgestream-audit-group-1791202804",
+    "duration_seconds": 0.5237,
+    "throughput_events_per_sec": 47.73,
     "partition_distribution": {
-      "3": 15,
+      "1": 5,
       "2": 5,
-      "1": 5
+      "3": 15
     },
     "partition_count_exercised": 3
   },
+  "asset_partition_mapping": {
+    "MOTOR-001": 1,
+    "PUMP-001": 2,
+    "COMPRESSOR-001": 3,
+    "CONVEYOR-001": 3,
+    "TURBINE-001": 3
+  },
   "sample_message_metadata": [
     {
-      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0003",
-      "asset_id": "COMPRESSOR-001",
+      "event_id": "KAFKA-LIVE-AUDIT-1791202805-MOTOR-001-0001",
+      "asset_id": "MOTOR-001",
       "topic": "industrial-telemetry",
-      "partition": 3,
-      "offset": 39,
-      "key": "COMPRESSOR-001"
+      "partition": 1,
+      "offset": 1080,
+      "key": "MOTOR-001"
     },
     {
-      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0004",
-      "asset_id": "CONVEYOR-001",
+      "event_id": "KAFKA-LIVE-AUDIT-1791202805-MOTOR-001-0002",
+      "asset_id": "MOTOR-001",
       "topic": "industrial-telemetry",
-      "partition": 3,
-      "offset": 40,
-      "key": "CONVEYOR-001"
+      "partition": 1,
+      "offset": 1081,
+      "key": "MOTOR-001"
     },
     {
-      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0005",
-      "asset_id": "TURBINE-001",
+      "event_id": "KAFKA-LIVE-AUDIT-1791202805-MOTOR-001-0003",
+      "asset_id": "MOTOR-001",
       "topic": "industrial-telemetry",
-      "partition": 3,
-      "offset": 41,
-      "key": "TURBINE-001"
+      "partition": 1,
+      "offset": 1082,
+      "key": "MOTOR-001"
     },
     {
-      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0008",
-      "asset_id": "COMPRESSOR-001",
+      "event_id": "KAFKA-LIVE-AUDIT-1791202805-PUMP-001-0001",
+      "asset_id": "PUMP-001",
       "topic": "industrial-telemetry",
-      "partition": 3,
-      "offset": 42,
-      "key": "COMPRESSOR-001"
+      "partition": 2,
+      "offset": 1079,
+      "key": "PUMP-001"
     },
     {
-      "event_id": "KAFKA-LIVE-AUDIT-1791146047-0009",
-      "asset_id": "CONVEYOR-001",
+      "event_id": "KAFKA-LIVE-AUDIT-1791202805-PUMP-001-0002",
+      "asset_id": "PUMP-001",
       "topic": "industrial-telemetry",
-      "partition": 3,
-      "offset": 43,
-      "key": "CONVEYOR-001"
+      "partition": 2,
+      "offset": 1080,
+      "key": "PUMP-001"
     }
   ],
   "partition_key_behavior_verified": true,

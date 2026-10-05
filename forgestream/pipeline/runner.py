@@ -51,7 +51,9 @@ class PipelineRunner:
         self.topic_mgr = KafkaTopicManager(force_fallback=force_fallback)
         self.producer = ResilientKafkaProducer(force_fallback=force_fallback)
         self.consumer_group_id = f"forgestream-runner-group-{uuid.uuid4().hex[:6]}"
-        self.consumer = TelemetryConsumer(group_id=self.consumer_group_id, force_fallback=force_fallback)
+        from forgestream.kafka.config import KafkaClientConfig
+        consumer_cfg = KafkaClientConfig(auto_offset_reset="latest")
+        self.consumer = TelemetryConsumer(config=consumer_cfg, group_id=self.consumer_group_id, force_fallback=force_fallback)
         if self.consumer.is_live:
             self.consumer.subscribe([settings.kafka.topic_telemetry])
 
@@ -119,6 +121,11 @@ class PipelineRunner:
             active_scenarios=active_scenarios,
         )
 
+        # Warm up partition assignment for live consumer
+        if self.consumer.is_live:
+            for _ in range(5):
+                self.consumer.consume_batch(max_messages=10, timeout_sec=0.1)
+
         # Start generating and publishing to Kafka
         total_generated = 0
         gen_stream = generator.generate_stream(duration_sec=duration_sec)
@@ -136,7 +143,7 @@ class PipelineRunner:
                 key=event.asset_id,
             )
 
-        self.producer.flush()
+        self.producer.flush(timeout_sec=10.0)
 
         # Ingestion Worker drains and validates messages
         total_valid = 0

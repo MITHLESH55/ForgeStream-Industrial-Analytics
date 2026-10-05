@@ -1,51 +1,58 @@
 {
-  "verification_timestamp": "2026-10-04T20:33:52.826323+00:00",
-  "database_backend": "PostgreSQL 16 Alpine",
+  "verification_timestamp": "2026-10-05T12:20:04.632282+00:00",
+  "database_backend": "PostgreSQL 16 Alpine (Docker Container)",
   "connection_dsn": "postgresql://forgestream_user:***@localhost:5433/forgestream_db",
-  "python_driver": "psycopg 3.3.6 / psycopg2-binary 2.9.13",
+  "python_driver": "psycopg2-binary 2.9.13",
   "verification_mode": "LIVE_INFRASTRUCTURE",
+  "actual_database_row_counts": {
+    "assets": 8,
+    "maintenance_history": 3,
+    "ingestion_runs": 29,
+    "data_quality_events": 3223,
+    "quarantine_events": 1726,
+    "experiment_runs": 10
+  },
   "tables_verified": {
     "assets": {
-      "row_count": 7,
+      "row_count": 8,
       "verified": true,
       "sample_assets": [
         "COMPRESSOR-001",
         "CONVEYOR-001",
         "MOTOR-001",
-        "MOTOR-TEST-001",
-        "PUMP-001"
+        "MOTOR-PG-001",
+        "MOTOR-TEST-001"
       ]
     },
     "maintenance_history": {
-      "row_count": 1,
+      "row_count": 3,
       "verified": true,
-      "latest_maintenance_id": "MAINT-PG-VERIFY-001"
+      "latest_maintenance_id": "MAINT-PG-1791202804"
     },
     "ingestion_runs": {
+      "row_count": 29,
       "verified": true,
-      "run_id": "RUN-PG-VERIFY-1791146032",
-      "status": "COMPLETED",
-      "events_generated": 150
+      "run_id": "RUN-PG-VERIFY-1791202804",
+      "status": "COMPLETED"
     },
     "data_quality_events": {
-      "row_count": 1,
+      "row_count": 3223,
       "verified": true,
-      "rule_codes": [
-        "DQ-006"
-      ]
+      "sample_rule_code": "DQ-006"
     },
     "quarantine_events": {
-      "row_count": 5,
+      "row_count": 1726,
       "verified": true,
-      "sample_quarantine_id": "Q-PG-1791146032"
+      "sample_quarantine_id": "Q-PG-1791202804"
     },
     "experiment_runs": {
+      "row_count": 10,
       "verified": true,
-      "experiment_id": "EXP-PG-VERIFY-1791146032",
+      "experiment_id": "EXP-PG-VERIFY-1791202804",
       "metrics_summary": {
         "backend": "PostgreSQL 16 Alpine",
         "host": "localhost:5433",
-        "driver": "psycopg 3.3.6 (C-extension/binary)",
+        "driver": "psycopg2-binary / psycopg",
         "tables_verified": 6,
         "connection_pool": "SQLAlchemy 2.0 Pool",
         "status": "VERIFIED"
