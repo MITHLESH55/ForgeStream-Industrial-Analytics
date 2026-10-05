@@ -1,0 +1,18 @@
+{
+  "test_name": "real_flink_live_kafka_e2e",
+  "timestamp": "2026-10-05T17:28:13.383796+00:00",
+  "runtime": "Apache Flink 1.18.1 with PyFlink and Kafka Connector 3.1.0",
+  "kafka_bootstrap_servers": "kafka:29092",
+  "input_topic": "forgestream.telemetry.raw",
+  "output_topic": "forgestream.telemetry.alerts",
+  "delivery_semantics": {
+    "kafka_source": "AT_LEAST_ONCE (offset committed to state backend)",
+    "keyed_state": "EXACTLY_ONCE (Flink ValueState checkpointing)",
+    "kafka_sink": "AT_LEAST_ONCE (KafkaSink DeliveryGuarantee)",
+    "end_to_end_pipeline": "AT_LEAST_ONCE with stateful deduplication"
+  },
+  "events_produced_to_kafka": 500,
+  "producer_throughput_eps": 47803.54,
+  "test_run_id": "e2e-run-bc6868",
+  "verification_status": "PASS"
+}

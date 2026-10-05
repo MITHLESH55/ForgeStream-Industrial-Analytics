@@ -1,0 +1,50 @@
+{
+  "verification_name": "Phase 2 Keyed State & Memory Footprint Verification",
+  "timestamp_utc": "2026-10-05T14:36:30Z",
+  "status": "PASSED",
+  "buffer_capacity_per_asset": 120,
+  "active_assets_count": 5,
+  "state_ttl_hours": 24.0,
+  "assets": {
+    "MOTOR-001": {
+      "asset_type": "MOTOR",
+      "buffered_temperatures_count": 120,
+      "buffered_vibrations_count": 120,
+      "current_health_state": "HEALTHY",
+      "current_health_score": 0.994,
+      "total_events_processed": 200
+    },
+    "PUMP-001": {
+      "asset_type": "PUMP",
+      "buffered_temperatures_count": 120,
+      "buffered_vibrations_count": 120,
+      "current_health_state": "DEGRADED",
+      "current_health_score": 0.652,
+      "total_events_processed": 200
+    },
+    "COMPRESSOR-001": {
+      "asset_type": "COMPRESSOR",
+      "buffered_temperatures_count": 120,
+      "buffered_vibrations_count": 120,
+      "current_health_state": "HEALTHY",
+      "current_health_score": 0.929,
+      "total_events_processed": 200
+    },
+    "CONVEYOR-001": {
+      "asset_type": "CONVEYOR",
+      "buffered_temperatures_count": 120,
+      "buffered_vibrations_count": 120,
+      "current_health_state": "HEALTHY",
+      "current_health_score": 0.951,
+      "total_events_processed": 200
+    },
+    "TURBINE-001": {
+      "asset_type": "TURBINE",
+      "buffered_temperatures_count": 120,
+      "buffered_vibrations_count": 120,
+      "current_health_state": "DEGRADED",
+      "current_health_score": 0.619,
+      "total_events_processed": 200
+    }
+  }
+}

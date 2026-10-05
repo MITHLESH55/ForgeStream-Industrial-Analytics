@@ -1,0 +1,22 @@
+{
+  "title": "ForgeStream Real Apache Flink Benchmark Methodology",
+  "timestamp": "2026-10-05T17:28:39.799761+00:00",
+  "methodology": {
+    "warmup_phase": "2,000 events pre-stream warmup to prime JVM JIT, PyFlink worker daemon, and socket pools",
+    "measurement_phase": "13,000 sustained steady-state events across 10 concurrent keyed assets",
+    "engine_under_test": "Apache Flink 1.18.1 / PyFlink 1.18.1 DataStream API on Docker Linux",
+    "parallelism": 4,
+    "keyed_state_backend": "Flink ValueState with checkpointing to file:///opt/forgestream/data/checkpoints",
+    "state_caching_strategy": "Worker-local state cache with periodic/transition synchronization to ValueState",
+    "buffer_optimization": "Fast C-level deque initialization with __slots__",
+    "input_generation": "Continuous multi-modal physical sensor streams (temp, vib, pres, curr, volt, pwr, spd)"
+  },
+  "comparison": {
+    "real_flink_baseline_unoptimized_eps": 376.38,
+    "real_flink_optimized_sustained_eps": 579.77,
+    "real_flink_improvement_factor": 1.54,
+    "native_python_reference_engine_eps": 4567.18,
+    "kafka_raw_producer_eps": 32929.35,
+    "kafka_raw_consumer_eps": 39061.26
+  }
+}

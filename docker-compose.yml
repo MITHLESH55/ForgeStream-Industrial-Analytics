@@ -9,6 +9,7 @@ services:
     container_name: forgestream-kafka
     ports:
       - "9092:9092"
+      - "29092:29092"
     environment:
       # KRaft Combined Broker & Controller Roles
       KAFKA_NODE_ID: 1
@@ -16,11 +17,11 @@ services:
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
 
-      # Listeners
-      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      # Dual Listeners: PLAINTEXT for host (localhost:9092), PLAINTEXT_INTERNAL for Docker network (kafka:29092)
+      KAFKA_LISTENERS: PLAINTEXT://:9092,PLAINTEXT_INTERNAL://:29092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
 
       # Single Broker Cluster Replication Settings
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -35,6 +36,49 @@ services:
       timeout: 5s
       retries: 5
       start_period: 15s
+
+  # ============================================================================
+  # Apache Flink 1.18.1 JobManager (Coordinator & Web Dashboard)
+  # ============================================================================
+  jobmanager:
+    image: forgestream-flink:1.18.1
+    container_name: forgestream-jobmanager
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        state.backend: filesystem
+        state.checkpoints.dir: file:///opt/forgestream/data/checkpoints
+        state.savepoints.dir: file:///opt/forgestream/data/savepoints
+        heartbeat.timeout: 10000
+    volumes:
+      - .:/opt/forgestream
+    depends_on:
+      - kafka
+
+  # ============================================================================
+  # Apache Flink 1.18.1 TaskManager (Distributed Stream Execution Engine)
+  # ============================================================================
+  taskmanager:
+    image: forgestream-flink:1.18.1
+    container_name: forgestream-taskmanager
+    command: taskmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 4
+        state.backend: filesystem
+        state.checkpoints.dir: file:///opt/forgestream/data/checkpoints
+        state.savepoints.dir: file:///opt/forgestream/data/savepoints
+        heartbeat.timeout: 10000
+    volumes:
+      - .:/opt/forgestream
+    depends_on:
+      - jobmanager
 
   # ============================================================================
   # PostgreSQL 16 (Operational Metadata & Data Quality Persistence)

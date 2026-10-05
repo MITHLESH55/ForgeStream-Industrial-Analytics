@@ -1,0 +1,209 @@
+{
+  "verification_name": "Phase 2 Alert Quality Engine Verification",
+  "timestamp_utc": "2026-10-05T14:36:30Z",
+  "status": "PASSED",
+  "alert_cooldown_duration_sec": 30.0,
+  "escalation_bypass_enabled": true,
+  "total_alerts_evaluated": 1000,
+  "total_alerts_emitted": 28,
+  "total_alerts_suppressed": 283,
+  "total_state_transitions": 26,
+  "total_recoveries": 11,
+  "sample_emitted_alerts": [
+    {
+      "alert_id": "alert-MOTO-1791201600-5fbbc2",
+      "asset_id": "MOTOR-001",
+      "asset_type": "MOTOR",
+      "event_time": "2026-10-05T12:00:00.100000+00:00",
+      "timestamp": 1791201600.1,
+      "alert_timestamp": 1791210990.8605692,
+      "severity": "HIGH",
+      "previous_health_state": "HEALTHY",
+      "current_health_state": "WATCH",
+      "health_score": 0.753,
+      "is_state_transition": true,
+      "is_recovery": false,
+      "anomaly_types": [
+        "L2_THERMAL_RISE_RATE"
+      ],
+      "reason_codes": [
+        "WARN_L2_RAPID_HEATING",
+        "Rapid thermal rise (60.0\u00b0C/min)"
+      ],
+      "triggering_values": {
+        "temperature": 68.13,
+        "vibration": 1.29,
+        "pressure": 1.1,
+        "current": 49.57,
+        "voltage": 398.3,
+        "power": 28.28
+      },
+      "supporting_features": {
+        "thermal_rise_rate": 60.0001,
+        "vibration_slope": 24.0,
+        "pressure_instability": 0.0744,
+        "current_ratio": 1.002,
+        "vibration_zscore": 0.707,
+        "mean_vibration": 1.267,
+        "mean_temperature": 68.08
+      },
+      "maintenance_priority": "SCHEDULED",
+      "schema_version": "2.0.0"
+    },
+    {
+      "alert_id": "alert-COMP-1791201600-ee7865",
+      "asset_id": "COMPRESSOR-001",
+      "asset_type": "COMPRESSOR",
+      "event_time": "2026-10-05T12:00:00.100000+00:00",
+      "timestamp": 1791201600.1,
+      "alert_timestamp": 1791210990.860951,
+      "severity": "HIGH",
+      "previous_health_state": "HEALTHY",
+      "current_health_state": "WATCH",
+      "health_score": 0.695,
+      "is_state_transition": true,
+      "is_recovery": false,
+      "anomaly_types": [
+        "L2_THERMAL_RISE_RATE"
+      ],
+      "reason_codes": [
+        "WARN_L2_RAPID_HEATING",
+        "Rapid thermal rise (54.0\u00b0C/min)"
+      ],
+      "triggering_values": {
+        "temperature": 84.0,
+        "vibration": 2.15,
+        "pressure": 8.5,
+        "current": 90.77,
+        "voltage": 399.9,
+        "power": 50.94
+      },
+      "supporting_features": {
+        "thermal_rise_rate": 54.0001,
+        "vibration_slope": -89.4001,
+        "pressure_instability": 0.0025,
+        "current_ratio": 1.01,
+        "vibration_zscore": -0.707,
+        "mean_vibration": 2.22,
+        "mean_temperature": 83.955
+      },
+      "maintenance_priority": "SCHEDULED",
+      "schema_version": "2.0.0"
+    },
+    {
+      "alert_id": "alert-CONV-1791201600-a1f3e8",
+      "asset_id": "CONVEYOR-001",
+      "asset_type": "CONVEYOR",
+      "event_time": "2026-10-05T12:00:00.100000+00:00",
+      "timestamp": 1791201600.1,
+      "alert_timestamp": 1791210990.8611305,
+      "severity": "HIGH",
+      "previous_health_state": "HEALTHY",
+      "current_health_state": "WATCH",
+      "health_score": 0.762,
+      "is_state_transition": true,
+      "is_recovery": false,
+      "anomaly_types": [
+        "L2_THERMAL_RISE_RATE"
+      ],
+      "reason_codes": [
+        "WARN_L2_RAPID_HEATING",
+        "Rapid thermal rise (126.0\u00b0C/min)"
+      ],
+      "triggering_values": {
+        "temperature": 45.3,
+        "vibration": 0.81,
+        "pressure": 0.86,
+        "current": 21.33,
+        "voltage": 400.0,
+        "power": 10.6
+      },
+      "supporting_features": {
+        "thermal_rise_rate": 126.0001,
+        "vibration_slope": 16.8,
+        "pressure_instability": 0.0629,
+        "current_ratio": 0.962,
+        "vibration_zscore": 0.707,
+        "mean_vibration": 0.794,
+        "mean_temperature": 45.195
+      },
+      "maintenance_priority": "SCHEDULED",
+      "schema_version": "2.0.0"
+    },
+    {
+      "alert_id": "alert-PUMP-1791201600-36bf71",
+      "asset_id": "PUMP-001",
+      "asset_type": "PUMP",
+      "event_time": "2026-10-05T12:00:00.200000+00:00",
+      "timestamp": 1791201600.2,
+      "alert_timestamp": 1791210990.8614564,
+      "severity": "HIGH",
+      "previous_health_state": "HEALTHY",
+      "current_health_state": "WATCH",
+      "health_score": 0.762,
+      "is_state_transition": true,
+      "is_recovery": false,
+      "anomaly_types": [
+        "L2_THERMAL_RISE_RATE"
+      ],
+      "reason_codes": [
+        "WARN_L2_RAPID_HEATING",
+        "Rapid thermal rise (36.0\u00b0C/min)"
+      ],
+      "triggering_values": {
+        "temperature": 62.1,
+        "vibration": 1.51,
+        "pressure": 6.27,
+        "current": 34.12,
+        "voltage": 401.3,
+        "power": 16.64
+      },
+      "supporting_features": {
+        "thermal_rise_rate": 36.0,
+        "vibration_slope": -28.2,
+        "pressure_instability": 0.0187,
+        "current_ratio": 0.996,
+        "vibration_zscore": -1.128,
+        "mean_vibration": 1.58,
+        "mean_temperature": 62.01
+      },
+      "maintenance_priority": "SCHEDULED",
+      "schema_version": "2.0.0"
+    },
+    {
+      "alert_id": "alert-PUMP-1791201600-7050b0",
+      "asset_id": "PUMP-001",
+      "asset_type": "PUMP",
+      "event_time": "2026-10-05T12:00:00.300000+00:00",
+      "timestamp": 1791201600.3,
+      "alert_timestamp": 1791210990.861898,
+      "severity": "INFO",
+      "previous_health_state": "WATCH",
+      "current_health_state": "HEALTHY",
+      "health_score": 1.0,
+      "is_state_transition": true,
+      "is_recovery": true,
+      "anomaly_types": [],
+      "reason_codes": [],
+      "triggering_values": {
+        "temperature": 61.92,
+        "vibration": 1.51,
+        "pressure": 6.32,
+        "current": 34.26,
+        "voltage": 400.1,
+        "power": 16.63
+      },
+      "supporting_features": {
+        "thermal_rise_rate": -1.8,
+        "vibration_slope": -23.64,
+        "pressure_instability": 0.0154,
+        "current_ratio": 1.0,
+        "vibration_zscore": -0.828,
+        "mean_vibration": 1.562,
+        "mean_temperature": 61.987
+      },
+      "maintenance_priority": "NORMAL",
+      "schema_version": "2.0.0"
+    }
+  ]
+}

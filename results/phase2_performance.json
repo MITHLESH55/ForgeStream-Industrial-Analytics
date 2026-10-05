@@ -1,0 +1,31 @@
+{
+  "benchmark_name": "Phase 2 Reference Streaming 1,000-Event Benchmark",
+  "timestamp_utc": "2026-10-05T14:36:58Z",
+  "status": "PASSED",
+  "execution_engine": "Native Python Event-Time Stream Processing Engine with Live Confluent-Kafka Sink",
+  "total_events_ingested": 1000,
+  "total_events_processed": 1000,
+  "active_assets_tracked": 5,
+  "duration_seconds": 0.219,
+  "throughput_events_per_sec": 4567.18,
+  "latency_percentiles_ms": {
+    "p50": 0.13,
+    "p95": 0.266,
+    "p99": 0.479
+  },
+  "watermark_lag_seconds": 5.0,
+  "anomalies_detected": 215,
+  "alerts_emitted_count": 28,
+  "windows_evaluated_count": 30,
+  "kafka_infrastructure": {
+    "bootstrap_servers": "localhost:9092",
+    "broker_status": "ONLINE (KRaft)",
+    "producer_driver": "confluent-kafka 2.15.1"
+  },
+  "kafka_topics": {
+    "telemetry_input": "industrial-telemetry",
+    "alerts_output": "asset-alerts",
+    "metrics_output": "system-metrics",
+    "models_output": "model-events"
+  }
+}

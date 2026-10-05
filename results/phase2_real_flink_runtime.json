@@ -1,0 +1,15 @@
+{
+  "test_name": "real_flink_runtime_environment",
+  "timestamp": "2026-10-05T17:27:56.267483+00:00",
+  "runtime": "Apache Flink / PyFlink DataStream Engine",
+  "flink_version": "1.18.1",
+  "flink_commit": "a8c8b1c",
+  "pyflink_module_path": "/usr/local/lib/python3.10/dist-packages/pyflink/__init__.py",
+  "python_version": "3.10.12",
+  "os_platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "taskmanagers_connected": 1,
+  "total_task_slots": 4,
+  "available_task_slots": 4,
+  "rest_api_status": "ONLINE",
+  "verification_status": "PASS"
+}

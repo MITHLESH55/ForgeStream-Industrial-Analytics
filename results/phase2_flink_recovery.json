@@ -1,0 +1,13 @@
+{
+  "test_name": "real_flink_checkpoint_and_recovery",
+  "timestamp": "2026-10-05T17:28:13.367844+00:00",
+  "runtime": "Apache Flink 1.18.1 PyFlink",
+  "checkpoint_mode": "EXACTLY_ONCE (Internal StateBackend)",
+  "checkpoint_storage_dir": "file:///opt/forgestream/data/checkpoints/test_recovery",
+  "checkpoint_interval_ms": 500,
+  "phase1_records_processed": 3,
+  "phase2_records_processed": 2,
+  "final_accumulated_count": 5,
+  "state_restoration_verified": true,
+  "verification_status": "PASS"
+}

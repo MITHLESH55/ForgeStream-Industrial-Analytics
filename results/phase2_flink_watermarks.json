@@ -1,0 +1,83 @@
+{
+  "test_name": "real_flink_event_time_and_watermarks",
+  "timestamp": "2026-10-05T17:28:04.747236+00:00",
+  "runtime": "Apache Flink 1.18.1 PyFlink DataStream",
+  "watermark_policy": "BoundedOutOfOrderness(delay=5.0s, idleness=1.0s)",
+  "allowed_lateness_sec": 30.0,
+  "input_events_count": 7,
+  "processed_events_count": 7,
+  "out_of_order_accepted_count": 2,
+  "events_verified": [
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000000.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": false,
+      "accepted": true
+    },
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000002.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": false,
+      "accepted": true
+    },
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000010.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": false,
+      "accepted": true
+    },
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000007.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": true,
+      "accepted": true
+    },
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000015.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": false,
+      "accepted": true
+    },
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000006.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": true,
+      "accepted": true
+    },
+    {
+      "asset_id": "PUMP-001",
+      "event_timestamp": 1700000025.0,
+      "flink_event_time_ms": -9223372036854775808,
+      "current_watermark_ms": -9223372036854775808,
+      "current_watermark_sec": 0.0,
+      "lateness_delay_sec": 0.0,
+      "is_out_of_order": false,
+      "accepted": true
+    }
+  ],
+  "verification_status": "PASS"
+}

@@ -1,6 +1,6 @@
-# VERSION_LOCK.md — ForgeStream Phase 1 Environment Specification
+# VERSION_LOCK.md — ForgeStream Phase 1 & Phase 2 Environment Specification
 
-This document records the exact, tested hardware, operating system, runtime, library, and container versions for ForgeStream Phase 1: Data Foundation & Streaming Infrastructure.
+This document records the exact, tested hardware, operating system, runtime, library, and container versions for ForgeStream Phase 1 (Data Foundation) and Phase 2 (Real-Time Industrial Stream Processing & Asset Health Intelligence).
 
 ---
 

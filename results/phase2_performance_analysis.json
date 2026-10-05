@@ -1,0 +1,36 @@
+{
+  "title": "ForgeStream Real Apache Flink Performance & Bottleneck Analysis",
+  "timestamp": "2026-10-05T17:28:39.802890+00:00",
+  "profiling_findings": {
+    "kafka_broker_capacity": {
+      "producer_rate_eps": 32929.35,
+      "consumer_rate_eps": 39061.26,
+      "is_bottleneck": false,
+      "notes": "Kafka KRaft broker comfortably handles >30,000 eps with sub-millisecond latencies."
+    },
+    "pyflink_ipc_boundary": {
+      "mechanism": "Apache Beam Portability Framework / gRPC Unix socket between JVM TaskManager and Python worker daemon",
+      "is_bottleneck": true,
+      "impact": "Every record crossing JVM-Python boundary undergoes serialization and inter-process socket transit. Python single-thread worker per slot achieves ~180-250 eps per slot."
+    },
+    "optimizations_applied": [
+      "Worker-local keyed state caching in ForgeStreamKeyedProcessFunction",
+      "Fast C-level deque deserialization in CircularSensorBuffer using __slots__",
+      "State synchronization batching to reduce synchronous ValueState gRPC calls",
+      "Increased TaskManager parallelism from 2 to 4 slots"
+    ],
+    "sla_evaluation": {
+      "latency_sla": {
+        "target": "< 10.0 ms p95",
+        "measured": 2.329,
+        "status": "PASS"
+      },
+      "throughput_sla": {
+        "target": "> 4,000 events/sec",
+        "measured": 579.77,
+        "status": "NOT_MET (Inherent PyFlink Python worker IPC limit on single container)",
+        "engineering_recommendation": "For enterprise production environments requiring >10,000 eps on Flink, deploy pure Java/Scala Flink KeyedProcessFunctions (0 IPC overhead) or horizontally scale Flink TaskManagers to 20+ worker nodes."
+      }
+    }
+  }
+}

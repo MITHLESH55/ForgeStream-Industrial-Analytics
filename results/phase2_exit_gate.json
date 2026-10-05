@@ -1,0 +1,64 @@
+{
+  "verification_name": "ForgeStream Phase 2 Exit Gate Verification",
+  "timestamp_utc": "2026-10-05T14:36:30Z",
+  "overall_status": "PASSED",
+  "gates": [
+    {
+      "gate_id": "GATE_2_1_STREAM_PROCESSING_RUNTIME",
+      "description": "Real-time streaming engine consuming from Kafka with keyed state and event-time watermarks",
+      "status": "PASSED",
+      "metrics": {
+        "events_processed": 1000,
+        "active_assets": 5
+      }
+    },
+    {
+      "gate_id": "GATE_2_2_ONLINE_FEATURE_EXTRACTION",
+      "description": "Rolling mean, std, thermal rise rate (dT/dt), vibration slope, and power factor computed in real time",
+      "status": "PASSED",
+      "metrics": {
+        "medium_window_sec": 30.0,
+        "short_window_sec": 5.0
+      }
+    },
+    {
+      "gate_id": "GATE_2_3_EXPLAINABLE_ANOMALY_DETECTION",
+      "description": "3-Level anomaly detection engine evaluating Level 1, Level 2, and Level 3 physics correlations",
+      "status": "PASSED",
+      "metrics": {
+        "anomalies_detected": 215
+      }
+    },
+    {
+      "gate_id": "GATE_2_4_ASSET_HEALTH_MODEL",
+      "description": "Deterministic asset health index [0.0-1.0] with asymmetric hysteresis state transitions",
+      "status": "PASSED",
+      "metrics": {
+        "states": [
+          "HEALTHY",
+          "WATCH",
+          "DEGRADED",
+          "CRITICAL"
+        ]
+      }
+    },
+    {
+      "gate_id": "GATE_2_5_ALERT_QUALITY_ENGINE",
+      "description": "Debounce, duplicate suppression, cooldown timers, and recovery event generation",
+      "status": "PASSED",
+      "metrics": {
+        "alerts_emitted": 28,
+        "suppressed": 283
+      }
+    },
+    {
+      "gate_id": "GATE_2_6_PERFORMANCE_SLA",
+      "description": "High-throughput stream processing with p95 processing latency < 10.0 ms",
+      "status": "PASSED",
+      "metrics": {
+        "p95_latency_ms": 0.328,
+        "throughput_ev_per_s": 4314.85
+      }
+    }
+  ]
+}

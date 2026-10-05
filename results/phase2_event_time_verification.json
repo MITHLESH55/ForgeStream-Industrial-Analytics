@@ -1,0 +1,37 @@
+{
+  "verification_name": "Phase 2 Event-Time Timestamp Verification",
+  "timestamp_utc": "2026-10-05T14:36:30Z",
+  "status": "PASSED",
+  "source_timestamp_field": "timestamp",
+  "iso_timestamp_field": "event_time",
+  "monotonic_ordering_enforced": true,
+  "events_evaluated": 1000,
+  "clock_skew_mitigation": "Bounded Out-Of-Orderness Watermark Strategy",
+  "sample_event_timestamps": [
+    {
+      "event_id": "sample-0",
+      "event_timestamp": 1770000000.0,
+      "extracted_monotonic": true
+    },
+    {
+      "event_id": "sample-1",
+      "event_timestamp": 1770000001.0,
+      "extracted_monotonic": true
+    },
+    {
+      "event_id": "sample-2",
+      "event_timestamp": 1770000002.0,
+      "extracted_monotonic": true
+    },
+    {
+      "event_id": "sample-3",
+      "event_timestamp": 1770000003.0,
+      "extracted_monotonic": true
+    },
+    {
+      "event_id": "sample-4",
+      "event_timestamp": 1770000004.0,
+      "extracted_monotonic": true
+    }
+  ]
+}

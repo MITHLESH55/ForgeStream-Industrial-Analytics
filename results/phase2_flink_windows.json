@@ -1,0 +1,30 @@
+{
+  "test_name": "real_flink_keyed_state_and_intelligence",
+  "timestamp": "2026-10-05T17:28:07.975628+00:00",
+  "runtime": "Apache Flink 1.18.1 PyFlink KeyedProcessFunction",
+  "keyed_state_backend": "Flink ValueState with Checkpointing",
+  "assets_keyed": [
+    "PUMP-002",
+    "MOTOR-001",
+    "TURBINE-003"
+  ],
+  "total_events_processed": 45,
+  "total_windows_emitted": 12,
+  "total_alerts_emitted": 6,
+  "motor_001_alerts": 3,
+  "pump_002_alerts": 2,
+  "turbine_003_alerts": 1,
+  "detected_anomaly_types": [
+    "L3_BEARING_DEGRADATION",
+    "L2_THERMAL_RISE_RATE",
+    "L3_FLUID_CAVITATION",
+    "L2_PRESSURE_INSTABILITY"
+  ],
+  "health_states_observed": [
+    "CRITICAL",
+    "HEALTHY",
+    "DEGRADED",
+    "WATCH"
+  ],
+  "verification_status": "PASS"
+}

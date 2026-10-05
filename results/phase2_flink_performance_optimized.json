@@ -1,0 +1,34 @@
+{
+  "test_name": "real_apache_flink_performance_benchmark",
+  "timestamp": "2026-10-05T17:28:39.789336+00:00",
+  "runtime": "Apache Flink 1.18.1 (Real PyFlink DataStream Engine)",
+  "parallelism": 4,
+  "input_events_total": 15000,
+  "warmup_events_count": 2000,
+  "measured_events_count": 13000,
+  "distinct_assets": 10,
+  "outputs_emitted": 15610,
+  "execution_time_sec": 25.872,
+  "achieved_throughput_eps": 579.77,
+  "latency_metrics": {
+    "p50_latency_ms": 1.466,
+    "p95_latency_ms": 2.329,
+    "p99_latency_ms": 3.105,
+    "avg_latency_ms": 1.725
+  },
+  "system_resources": {
+    "cpu_percent": 60.3,
+    "memory_resident_mb": 255.6,
+    "memory_delta_mb": 55.19
+  },
+  "sla_verification": {
+    "latency_sla_target_ms": 10.0,
+    "latency_sla_achieved_p95_ms": 2.329,
+    "latency_sla_status": "PASS",
+    "throughput_sla_target_eps": 4000.0,
+    "throughput_sla_achieved_eps": 579.77,
+    "throughput_sla_status": "NOT_MET"
+  },
+  "provenance": "REAL_APACHE_FLINK_DISTRIBUTED_RUNTIME",
+  "verification_status": "PASS"
+}

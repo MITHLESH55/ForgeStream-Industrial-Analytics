@@ -1,0 +1,60 @@
+{
+  "verification_name": "Phase 2 3-Level Anomaly Detection Verification",
+  "timestamp_utc": "2026-10-05T14:36:30Z",
+  "status": "PASSED",
+  "hierarchy_levels": {
+    "Level 1": "Deterministic Physical & Engineering Bounds (Instantaneous Trip)",
+    "Level 2": "Contextual Rolling Statistical Deviations (Z-Scores & Dynamic Envelopes)",
+    "Level 3": "Multi-Signal Coupled Physical Correlations (Degradation Signatures)"
+  },
+  "level_1_test_anomalies": [
+    {
+      "anomaly_id": "ano-l1-vib-6a447d",
+      "anomaly_type": "L1_VIBRATION_CRITICAL_ISO",
+      "level": 1,
+      "severity": "CRITICAL",
+      "reason_code": "ERR_L1_VIB_ZONE_D",
+      "description": "Vibration 15.00 mm/s breached ISO 10816 Zone D critical trip 12.0 mm/s",
+      "triggering_value": 15.0,
+      "threshold_value": 12.0,
+      "timestamp": 100.0
+    }
+  ],
+  "level_2_test_anomalies": [
+    {
+      "anomaly_id": "ano-l2-thermal-651b9b",
+      "anomaly_type": "L2_THERMAL_RISE_RATE",
+      "level": 2,
+      "severity": "WARNING",
+      "reason_code": "WARN_L2_RAPID_HEATING",
+      "description": "Thermal rise rate 6.20\u00b0C/min exceeded dynamic threshold 4.0\u00b0C/min",
+      "triggering_value": 6.2,
+      "threshold_value": 4.0,
+      "timestamp": 100.0
+    },
+    {
+      "anomaly_id": "ano-l2-vibz-7232e9",
+      "anomaly_type": "L2_VIBRATION_ZSCORE_DEVIATION",
+      "level": 2,
+      "severity": "WARNING",
+      "reason_code": "WARN_L2_VIB_STATISTICAL_DEVIATION",
+      "description": "Vibration z-score 4.10 deviated from rolling baseline (mean: 0.00 mm/s)",
+      "triggering_value": 4.1,
+      "threshold_value": 3.0,
+      "timestamp": 100.0
+    }
+  ],
+  "level_3_test_anomalies": [
+    {
+      "anomaly_id": "ano-l3-cavitation-42aa68",
+      "anomaly_type": "L3_FLUID_CAVITATION",
+      "level": 3,
+      "severity": "HIGH",
+      "reason_code": "FAULT_L3_CAVITATION_SHOCKWAVES",
+      "description": "Cavitation signature: pressure instability (0.160) coupled with high-frequency vibration (5.00 mm/s)",
+      "triggering_value": 0.16,
+      "threshold_value": 0.12,
+      "timestamp": 100.0
+    }
+  ]
+}

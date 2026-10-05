@@ -1,0 +1,48 @@
+{
+  "verification_name": "Phase 2 Bounded Out-Of-Orderness Watermark Verification",
+  "timestamp_utc": "2026-10-05T14:36:30Z",
+  "status": "PASSED",
+  "max_out_of_orderness_delay_sec": 5.0,
+  "allowed_lateness_sec": 30.0,
+  "test_progression": [
+    {
+      "event_timestamp": 100.0,
+      "description": "Initial event t=100.0",
+      "classification": "ON_TIME",
+      "resulting_watermark": 95.0,
+      "watermark_lag_sec": 5.0
+    },
+    {
+      "event_timestamp": 102.0,
+      "description": "In-order advance t=102.0",
+      "classification": "ON_TIME",
+      "resulting_watermark": 97.0,
+      "watermark_lag_sec": 5.0
+    },
+    {
+      "event_timestamp": 99.0,
+      "description": "Out-of-order within watermark lag t=99.0",
+      "classification": "ON_TIME",
+      "resulting_watermark": 97.0,
+      "watermark_lag_sec": 5.0
+    },
+    {
+      "event_timestamp": 75.0,
+      "description": "Late event within allowed lateness t=75.0",
+      "classification": "LATE_ACCEPTED",
+      "resulting_watermark": 97.0,
+      "watermark_lag_sec": 5.0
+    },
+    {
+      "event_timestamp": 40.0,
+      "description": "Excessively late event t=40.0 (dropped)",
+      "classification": "EXCESSIVELY_LATE",
+      "resulting_watermark": 97.0,
+      "watermark_lag_sec": 5.0
+    }
+  ],
+  "final_watermark": 97.0,
+  "on_time_count": 3,
+  "late_accepted_count": 1,
+  "excessively_late_count": 1
+}
