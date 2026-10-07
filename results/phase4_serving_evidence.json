@@ -1,0 +1,277 @@
+{
+  "phase": "Phase 4 - Lakehouse Serving Store & Dual-Storage Verification",
+  "generated_at": "2026-10-06T18:22:31.501584+00:00",
+  "serving_tables": {
+    "relational_postgresql": [
+      "asset_current_state",
+      "asset_prediction_history",
+      "asset_alert_history",
+      "asset_telemetry_summary",
+      "maintenance_priority_queue",
+      "fleet_kpi_snapshots"
+    ],
+    "iceberg_catalog_tables": [
+      "lakehouse.forgestream.asset_current_state",
+      "lakehouse.forgestream.asset_prediction_history",
+      "lakehouse.forgestream.asset_alert_history",
+      "lakehouse.forgestream.fleet_kpi_snapshots"
+    ]
+  },
+  "current_asset_count": 28,
+  "assets_in_serving_store": [
+    {
+      "asset_id": "BENCH-ASSET-001",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "HEALTHY",
+      "health_score": 0.984,
+      "failure_probability": 0.016,
+      "predicted_rul_hours": 118.08,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-002",
+      "asset_type": "CENTRIFUGAL_PUMP",
+      "health_state": "HEALTHY",
+      "health_score": 0.98,
+      "failure_probability": 0.02,
+      "predicted_rul_hours": 117.6,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-003",
+      "asset_type": "RECIP_COMPRESSOR",
+      "health_state": "HEALTHY",
+      "health_score": 0.975,
+      "failure_probability": 0.025,
+      "predicted_rul_hours": 117.0,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-004",
+      "asset_type": "STEAM_GEN",
+      "health_state": "HEALTHY",
+      "health_score": 0.97,
+      "failure_probability": 0.03,
+      "predicted_rul_hours": 116.4,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-005",
+      "asset_type": "HYDRAULIC_PRESS",
+      "health_state": "HEALTHY",
+      "health_score": 0.966,
+      "failure_probability": 0.034,
+      "predicted_rul_hours": 115.92,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-006",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "HEALTHY",
+      "health_score": 0.95,
+      "failure_probability": 0.05,
+      "predicted_rul_hours": 114.0,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-007",
+      "asset_type": "CENTRIFUGAL_PUMP",
+      "health_state": "HEALTHY",
+      "health_score": 0.934,
+      "failure_probability": 0.066,
+      "predicted_rul_hours": 112.08,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-008",
+      "asset_type": "RECIP_COMPRESSOR",
+      "health_state": "HEALTHY",
+      "health_score": 0.918,
+      "failure_probability": 0.082,
+      "predicted_rul_hours": 110.16,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-009",
+      "asset_type": "STEAM_GEN",
+      "health_state": "HEALTHY",
+      "health_score": 0.902,
+      "failure_probability": 0.098,
+      "predicted_rul_hours": 108.24,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-010",
+      "asset_type": "HYDRAULIC_PRESS",
+      "health_state": "HEALTHY",
+      "health_score": 0.886,
+      "failure_probability": 0.114,
+      "predicted_rul_hours": 106.32,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-011",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "HEALTHY",
+      "health_score": 0.87,
+      "failure_probability": 0.13,
+      "predicted_rul_hours": 104.4,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-012",
+      "asset_type": "CENTRIFUGAL_PUMP",
+      "health_state": "HEALTHY",
+      "health_score": 0.854,
+      "failure_probability": 0.146,
+      "predicted_rul_hours": 102.48,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "BENCH-ASSET-013",
+      "asset_type": "RECIP_COMPRESSOR",
+      "health_state": "WATCH",
+      "health_score": 0.839,
+      "failure_probability": 0.161,
+      "predicted_rul_hours": 100.68,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-014",
+      "asset_type": "STEAM_GEN",
+      "health_state": "WATCH",
+      "health_score": 0.823,
+      "failure_probability": 0.177,
+      "predicted_rul_hours": 98.76,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-015",
+      "asset_type": "HYDRAULIC_PRESS",
+      "health_state": "WATCH",
+      "health_score": 0.807,
+      "failure_probability": 0.443,
+      "predicted_rul_hours": 96.84,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-016",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "WATCH",
+      "health_score": 0.791,
+      "failure_probability": 0.45899999999999996,
+      "predicted_rul_hours": 94.92,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-017",
+      "asset_type": "CENTRIFUGAL_PUMP",
+      "health_state": "WATCH",
+      "health_score": 0.775,
+      "failure_probability": 0.475,
+      "predicted_rul_hours": 93.0,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-018",
+      "asset_type": "RECIP_COMPRESSOR",
+      "health_state": "WATCH",
+      "health_score": 0.762,
+      "failure_probability": 0.488,
+      "predicted_rul_hours": 91.44,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-019",
+      "asset_type": "STEAM_GEN",
+      "health_state": "WATCH",
+      "health_score": 0.752,
+      "failure_probability": 0.498,
+      "predicted_rul_hours": 90.24,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "BENCH-ASSET-020",
+      "asset_type": "HYDRAULIC_PRESS",
+      "health_state": "WATCH",
+      "health_score": 0.741,
+      "failure_probability": 0.509,
+      "predicted_rul_hours": 88.92,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "COMPRESSOR-003",
+      "asset_type": "RECIP_COMPRESSOR",
+      "health_state": "HEALTHY",
+      "health_score": 0.989,
+      "failure_probability": 0.011,
+      "predicted_rul_hours": 118.68,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "E2E-GEN-02",
+      "asset_type": "STEAM_GEN",
+      "health_state": "WATCH",
+      "health_score": 0.708,
+      "failure_probability": 0.542,
+      "predicted_rul_hours": 84.96,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "E2E-TURBINE-01",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "HEALTHY",
+      "health_score": 1.0,
+      "failure_probability": 0.0,
+      "predicted_rul_hours": 120.0,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "GENERATOR-004",
+      "asset_type": "STEAM_GEN",
+      "health_state": "DEGRADED",
+      "health_score": 0.552,
+      "failure_probability": 0.698,
+      "predicted_rul_hours": 66.24,
+      "maintenance_priority": "HIGH"
+    },
+    {
+      "asset_id": "PRESS-005",
+      "asset_type": "HYDRAULIC_PRESS",
+      "health_state": "HEALTHY",
+      "health_score": 0.972,
+      "failure_probability": 0.028,
+      "predicted_rul_hours": 116.64,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "PUMP-002",
+      "asset_type": "CENTRIFUGAL_PUMP",
+      "health_state": "WATCH",
+      "health_score": 0.751,
+      "failure_probability": 0.499,
+      "predicted_rul_hours": 90.12,
+      "maintenance_priority": "MEDIUM"
+    },
+    {
+      "asset_id": "TEST-TURBINE-01",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "WATCH",
+      "health_score": 0.81,
+      "failure_probability": 0.075,
+      "predicted_rul_hours": 110.5,
+      "maintenance_priority": "LOW"
+    },
+    {
+      "asset_id": "TURBINE-001",
+      "asset_type": "GAS_TURBINE",
+      "health_state": "HEALTHY",
+      "health_score": 1.0,
+      "failure_probability": 0.0,
+      "predicted_rul_hours": 120.0,
+      "maintenance_priority": "LOW"
+    }
+  ],
+  "prescriptive_queue_count": 28,
+  "status": "VERIFIED"
+}

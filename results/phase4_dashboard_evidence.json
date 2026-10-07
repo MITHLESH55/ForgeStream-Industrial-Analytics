@@ -1,0 +1,136 @@
+{
+  "phase": "Phase 4 - Grafana Operations Center Dashboard Evidence",
+  "generated_at": "2026-10-06T18:22:35.860721+00:00",
+  "dashboard_title": "FORGESTREAM INDUSTRIAL OPERATIONS CENTER",
+  "dashboard_uid": null,
+  "grafana_service_status": "ok",
+  "grafana_provisioned_dashboards": [
+    "Operations",
+    "FORGESTREAM INDUSTRIAL OPERATIONS CENTER"
+  ],
+  "architecture": {
+    "total_rows": 5,
+    "total_panels": 16,
+    "rows": [
+      {
+        "title": "ROW 1 \u2014 Executive Operational & Fleet KPIs",
+        "row_id": 100
+      },
+      {
+        "title": "ROW 2 \u2014 Asset Health & Fleet Distribution",
+        "row_id": 200
+      },
+      {
+        "title": "ROW 3 \u2014 Predictive Maintenance & Prognostics Ranking",
+        "row_id": 300
+      },
+      {
+        "title": "ROW 4 \u2014 Historical Trends & Predictive Diagnostics",
+        "row_id": 400
+      },
+      {
+        "title": "ROW 5 \u2014 Asset Diagnostics & Anomaly Alert Audit",
+        "row_id": 500
+      }
+    ],
+    "panel_inventory": [
+      {
+        "id": 1,
+        "title": "Total Assets",
+        "type": "stat",
+        "datasource": "postgres"
+      },
+      {
+        "id": 2,
+        "title": "Healthy Assets",
+        "type": "stat",
+        "datasource": "postgres"
+      },
+      {
+        "id": 3,
+        "title": "Critical Assets",
+        "type": "stat",
+        "datasource": "postgres"
+      },
+      {
+        "id": 4,
+        "title": "High-Risk Assets (Risk >= 50%)",
+        "type": "stat",
+        "datasource": "postgres"
+      },
+      {
+        "id": 5,
+        "title": "Fleet Avg Predicted RUL",
+        "type": "stat",
+        "datasource": "postgres"
+      },
+      {
+        "id": 6,
+        "title": "Active Alerts",
+        "type": "stat",
+        "datasource": "postgres"
+      },
+      {
+        "id": 7,
+        "title": "Fleet Health Score",
+        "type": "gauge",
+        "datasource": "postgres"
+      },
+      {
+        "id": 8,
+        "title": "Health State Breakdown",
+        "type": "bargauge",
+        "datasource": "postgres"
+      },
+      {
+        "id": 9,
+        "title": "Asset Health & Operational Registry",
+        "type": "table",
+        "datasource": "postgres"
+      },
+      {
+        "id": 10,
+        "title": "Failure Probability (Highest Risk Assets)",
+        "type": "barchart",
+        "datasource": "postgres"
+      },
+      {
+        "id": 11,
+        "title": "Predicted Remaining Useful Life (RUL Hours)",
+        "type": "barchart",
+        "datasource": "postgres"
+      },
+      {
+        "id": 12,
+        "title": "Prescriptive Maintenance Priority Work Orders",
+        "type": "table",
+        "datasource": "postgres"
+      },
+      {
+        "id": 13,
+        "title": "Failure Risk Probability History",
+        "type": "timeseries",
+        "datasource": "postgres"
+      },
+      {
+        "id": 14,
+        "title": "Predicted Remaining Useful Life Trend (Hours)",
+        "type": "timeseries",
+        "datasource": "postgres"
+      },
+      {
+        "id": 15,
+        "title": "Streaming Alert Log & Root Cause Explainability",
+        "type": "table",
+        "datasource": "postgres"
+      },
+      {
+        "id": 16,
+        "title": "Recent Maintenance & Work Order Records",
+        "type": "table",
+        "datasource": "postgres"
+      }
+    ]
+  },
+  "status": "VERIFIED"
+}

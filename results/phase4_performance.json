@@ -1,0 +1,79 @@
+{
+  "phase": "Phase 4 - Lakehouse Serving & Analytics Performance",
+  "benchmark_timestamp": "2026-10-06T18:22:12.366295+00:00",
+  "ingestion_serving": {
+    "total_events_processed": 200,
+    "batch_count": 10,
+    "throughput_events_per_sec": 169.33,
+    "latency_p50_ms": 117.43,
+    "latency_p90_ms": 128.71,
+    "latency_p95_ms": 143.73,
+    "latency_p99_ms": 155.74
+  },
+  "engine_microbenchmarks": {
+    "fleet_kpi_calculation_mean_us": 95.68,
+    "maintenance_ranking_mean_us": 520.2
+  },
+  "trino_query_latencies": [
+    {
+      "name": "Point Lookup by Asset ID",
+      "query": "SELECT * FROM postgres.public.asset_current_state WHERE asset_id = 'BENCH-ASSET-001'",
+      "status": "SUCCESS",
+      "avg_latency_ms": 229.41,
+      "min_latency_ms": 223.53,
+      "runs": [
+        237.3,
+        223.53,
+        227.39
+      ]
+    },
+    {
+      "name": "Fleet Aggregation & KPI Stats",
+      "query": "SELECT AVG(health_score), MIN(predicted_rul_hours), MAX(failure_probability) FROM postgres.public.asset_current_state",
+      "status": "SUCCESS",
+      "avg_latency_ms": 151.47,
+      "min_latency_ms": 133.26,
+      "runs": [
+        171.0,
+        150.16,
+        133.26
+      ]
+    },
+    {
+      "name": "Prescriptive Maintenance Ordered Scan",
+      "query": "SELECT * FROM postgres.public.maintenance_priority_queue ORDER BY ranking ASC LIMIT 10",
+      "status": "SUCCESS",
+      "avg_latency_ms": 218.41,
+      "min_latency_ms": 210.78,
+      "runs": [
+        213.9,
+        210.78,
+        230.56
+      ]
+    },
+    {
+      "name": "Alert Severity Grouping",
+      "query": "SELECT severity, COUNT(*) FROM postgres.public.asset_alert_history GROUP BY severity",
+      "status": "SUCCESS",
+      "avg_latency_ms": 158.01,
+      "min_latency_ms": 150.38,
+      "runs": [
+        161.87,
+        150.38,
+        161.78
+      ]
+    },
+    {
+      "name": "Cross-Catalog Federated Join Baseline",
+      "query": "SELECT r.name, count(*) as count FROM tpch.sf1.nation n JOIN tpch.sf1.region r ON n.regionkey = r.regionkey GROUP BY r.name",
+      "status": "SUCCESS",
+      "avg_latency_ms": 187.92,
+      "min_latency_ms": 133.22,
+      "runs": [
+        291.04,
+        133.22,
+        139.51
+      ]
+    }
+  ]
+}

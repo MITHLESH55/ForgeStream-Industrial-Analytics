@@ -8,14 +8,13 @@
 
 ## 1. Executive Summary
 
-**ForgeStream** is a real-time distributed streaming analytics and lakehouse platform engineered for high-frequency industrial equipment telemetry. In modern manufacturing and industrial facilities, critical assets such as induction motors, centrifugal pumps, screw compressors, conveyors, and gas turbines experience progressive physical degradation (e.g., bearing raceway fatigue, stator winding overheating, impeller cavitation, dynamic unbalance).
+**ForgeStream** is an end-to-end real-time distributed streaming analytics, lakehouse, and machine learning platform engineered for high-frequency industrial equipment telemetry.
 
-Phase 1 establishes the **Data Foundation and Streaming Infrastructure**, providing:
-- **Physics-Correlated Industrial Simulator**: Deterministic generation across 5 asset types and 8 operational/degradation scenarios with strict ground-truth metadata isolation.
-- **Apache Kafka Streaming Bus**: Low-latency message backbone with topic provisioning, resilient producers with automatic fallback, and partition keying on `asset_id`.
-- **13-Rule Data Quality Engine**: Strict validation layer evaluating syntax, semantics, physical bounds, timestamp integrity, duplicate detection, and sequence ordering, routing defective records to quarantine.
-- **Pure Python Apache Iceberg Lakehouse**: JVM-free Python Iceberg integration powered by PyIceberg 0.12.0 and PyArrow 25.0.1, featuring atomic Iceberg snapshot commits, metadata lineage, and identity partitioning.
-- **PostgreSQL Operational Metadata Store**: Relational repository tracking asset registries, maintenance logs, ingestion runs, validation audits, and quarantine records.
+The platform spans 4 fully implemented and verified phases:
+- **Phase 1: Data Foundation & Streaming Infrastructure**: Physics-correlated telemetry simulator across 5 asset types and 8 degradation scenarios, Apache Kafka KRaft message bus, 13-rule Data Quality & Quarantine engine, Apache Iceberg (PyIceberg + PyArrow) lakehouse, and PostgreSQL 16 operational repository.
+- **Phase 2: Real-Time Stream Processing & Asset Health Intelligence**: Event-time streaming engine with watermarking (5s bounded out-of-orderness), keyed state ($N=120$ circular buffers), tumbling & sliding windows, 3-level explainable anomaly detection, hysteresis state machine health modeling, and containerized Apache Flink 1.18.1 distributed runtime.
+- **Phase 3: Predictive Maintenance ML & Remaining Useful Life (RUL)**: Apache Spark MLlib feature engineering pipelines (25 features), zero-lookahead target leakage audit, Random Forest binary failure classifier ($PR\text{-}AUC = 0.7666, \text{Recall} = 0.8512$), Random Forest RUL regressor ($R^2 = 0.3980, \text{RMSE} = 30.74\text{h}$), and MLflow model tracking & governance.
+- **Phase 4: Lakehouse Serving, Trino Analytics & Operational Dashboards**: Hybrid dual-storage serving engine (PostgreSQL 16 operational store + Apache Iceberg historical store), deterministic mathematical Operational KPI & Maintenance Ranking Engine ($S_{priority}$), Apache Trino (v438) distributed SQL query coordinator with 21 modular analytical queries across 7 files, and Grafana 10 declarative Operations Center dashboard (16 panels across 5 rows).
 
 ---
 
@@ -101,26 +100,31 @@ python -m forgestream.cli verify --limit 10
 
 # 4. Generate all academic evidence artifacts
 python scripts/generate_phase1_evidence.py
+
+# 5. Execute Phase 4 Lakehouse Serving & Trino Demo
+python scripts/run_phase4_demo.py
+
+# 6. Run Phase 4 Performance Benchmarking
+python scripts/benchmark_phase4_performance.py
+
+# 7. Generate Phase 4 Machine-Readable Verification Artifacts
+python scripts/generate_phase4_evidence.py
 ```
 
 ---
 
 ## 5. Test Suite Execution
 
-ForgeStream provides a comprehensive test suite with 45 unit, integration, and E2E tests:
+ForgeStream provides a comprehensive multi-phase test suite (Unit, Integration, and E2E):
 
 ```bash
-# Run all tests
+# Run full project test suite across all 4 phases
 pytest tests/ -v
 
-# Run unit tests (physics, determinism, scenarios, validation rules)
-pytest tests/unit/ -v
-
-# Run integration tests (Kafka, PyIceberg catalog, Postgres repository)
-pytest tests/integration/ -v
-
-# Run end-to-end tests (full pipeline lifecycle, fault injection & quarantine)
-pytest tests/e2e/ -v
+# Run Phase 4 specific test suites
+pytest tests/unit/test_phase4_serving.py -v
+pytest tests/integration/test_phase4_integration.py -v
+pytest tests/e2e/test_phase4_e2e.py -v
 ```
 
 ---
@@ -156,28 +160,52 @@ ForgeStream/
 │   │   ├── schema.sql                # 6 Relational DDL schemas
 │   │   ├── connection.py             # Engine manager with SQLite fallback
 │   │   └── repository.py             # Typed repository CRUD operations
+│   ├── streaming/                    # Phase 2 Real-time stream processing
+│   │   ├── timestamps.py             # Event-time timestamp extraction
+│   │   ├── watermarks.py             # Bounded out-of-orderness watermarks
+│   │   ├── state.py                  # Keyed circular telemetry buffers
+│   │   ├── windows.py                # Tumbling & sliding window analytics
+│   │   ├── anomaly.py                # 3-level explainable anomaly detector
+│   │   ├── health.py                 # Hysteresis state machine & health score
+│   │   ├── alerts.py                 # Debounced alerting & recovery engine
+│   │   ├── job.py                    # Reference stream processing engine
+│   │   └── flink_job.py              # PyFlink DataStream distributed job
+│   ├── ml/                           # Phase 3 ML prognostics & MLlib pipelines
+│   │   ├── feature_pipeline.py       # 25-feature MLlib transformation pipeline
+│   │   ├── labeling.py               # Zero-lookahead RUL & failure labeling
+│   │   ├── leakage_auditor.py        # Strict whitelist & correlation scanner
+│   │   ├── models/                   # Spark MLlib classification & regression
+│   │   ├── tracking.py               # MLflow experiment tracking
+│   │   ├── governance.py             # Promotion gates & champion registry
+│   │   └── serving/                  # Downstream inference scoring contract
+│   ├── serving/                      # Phase 4 Lakehouse serving & Trino analytics
+│   │   ├── schemas.py                # Versioned Pydantic serving schemas
+│   │   ├── kpis.py                   # Deterministic Operational KPI engine
+│   │   ├── store.py                  # Dual-storage manager (PostgreSQL + Iceberg)
+│   │   ├── service.py                # Serving orchestrator
+│   │   └── trino_client.py           # Distributed Trino REST API client
 │   └── observability/                # Telemetry & diagnostic logging
 │       ├── logging.py                # Structured JSON logging
 │       └── metrics.py                # In-memory metrics aggregator
-├── tests/                            # 45 Automated test suites
-│   ├── unit/                         # Physics, determinism, scenario tests
-│   ├── integration/                  # Storage & streaming component tests
-│   └── e2e/                          # End-to-end pipeline & fault injection
-├── results/                          # Machine-readable benchmark evidence
-│   ├── phase1_reference_run.json     # Official 1,000-event benchmark output
-│   ├── phase1_data_quality.json      # 13-rule validation campaign results
-│   ├── phase1_smoke_test.json        # Subsystem health verification matrix
-│   └── phase1_resource_usage.json    # Resource footprint & throughput profile
-├── docs/                             # Engineering & academic documentation
-│   ├── architecture/
-│   │   ├── phase1.md                 # Detailed Phase 1 architecture
-│   │   └── DECISIONS.md              # Architecture Decision Records (ADRs)
-│   └── report-evidence/
-│       ├── phase1_evidence.md        # Academic report evidence summary
-│       └── CA3_EVIDENCE_MATRIX.md    # CA-3 course rubric compliance matrix
-├── docker-compose.yml                # Kafka & PostgreSQL infrastructure
-├── VERSION_LOCK.md                   # Exact dependency and tool version pins
-├── PROJECT_STATUS.md                 # Phase-by-phase implementation status
+├── grafana/                          # Declarative Grafana 10 provisioning
+│   ├── provisioning/
+│   │   ├── datasources/postgres.yml  # PostgreSQL datasource connection
+│   │   └── dashboards/dashboards.yml # Automatic dashboard provider
+│   └── dashboards/
+│       └── forgestream_operations_center.json # 16-Panel Operations Center
+├── trino/                            # Apache Trino coordinator configuration
+│   └── etc/                          # node.properties, jvm.config, config.properties
+├── sql/phase4/                       # 7 Modular analytical SQL scripts (21 queries)
+├── tests/                            # Comprehensive multi-phase test suite
+│   ├── unit/                         # Unit tests (Phase 1-4)
+│   ├── integration/                  # Integration tests (Phase 1-4)
+│   └── e2e/                          # End-to-end tests (Phase 1-4)
+├── results/                          # Machine-readable verification JSON evidence
+├── docs/                             # Engineering, architecture, and academic docs
+│   ├── phase4/                       # Phase 4 comprehensive documentation (8 files)
+│   └── report-evidence/              # CA-3 compliance matrix & evidence reports
+├── docker-compose.yml                # Kafka, Postgres, Flink, Trino, Grafana stack
+├── PROJECT_STATUS.md                 # Implementation roadmap and status
 └── requirements.txt                  # Python dependencies
 ```
 

@@ -25,6 +25,14 @@ def get_spark_session(config: Optional[SparkConfig] = None) -> SparkSession:
     if config is None:
         config = SparkConfig()
 
+    # Ensure valid JAVA_HOME is set if missing or pointing to non-existent java executable
+    java_home = os.environ.get("JAVA_HOME")
+    if not java_home or not (os.path.exists(os.path.join(java_home, "bin", "java.exe")) or os.path.exists(os.path.join(java_home, "bin", "java"))):
+        for candidate in [r"C:\Program Files\Java\jdk-24", r"C:\Program Files\Java\jdk-21"]:
+            if os.path.exists(os.path.join(candidate, "bin", "java.exe")) or os.path.exists(os.path.join(candidate, "bin", "java")):
+                os.environ["JAVA_HOME"] = candidate
+                break
+
     # Bind Python executable paths for PySpark workers
     os.environ["PYSPARK_PYTHON"] = sys.executable
     os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable

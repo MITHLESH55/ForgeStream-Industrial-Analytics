@@ -1,0 +1,327 @@
+{
+  "coordinator_url": "http://localhost:8085",
+  "trino_version": "438",
+  "verified_at": "2026-10-06T18:23:03.865473+00:00",
+  "query_count": 10,
+  "successful_queries": 10,
+  "results": [
+    {
+      "name": "1. Telemetry & Current State Record Count",
+      "query": "SELECT COUNT(*) as current_state_count FROM postgres.public.asset_current_state;",
+      "status": "SUCCESS",
+      "row_count": 1,
+      "columns": [
+        "current_state_count"
+      ],
+      "sample_rows": [
+        [
+          28
+        ]
+      ],
+      "execution_time_ms": 179.96,
+      "error_message": null
+    },
+    {
+      "name": "2. Distinct Asset Inventory & Types",
+      "query": "SELECT DISTINCT asset_id, asset_type, operating_mode FROM postgres.public.asset_current_state ORDER BY asset_id;",
+      "status": "SUCCESS",
+      "row_count": 28,
+      "columns": [
+        "asset_id",
+        "asset_type",
+        "operating_mode"
+      ],
+      "sample_rows": [
+        [
+          "BENCH-ASSET-001",
+          "GAS_TURBINE",
+          "DEGRADED"
+        ],
+        [
+          "BENCH-ASSET-002",
+          "CENTRIFUGAL_PUMP",
+          "NORMAL"
+        ],
+        [
+          "BENCH-ASSET-003",
+          "RECIP_COMPRESSOR",
+          "NORMAL"
+        ],
+        [
+          "BENCH-ASSET-004",
+          "STEAM_GEN",
+          "NORMAL"
+        ],
+        [
+          "BENCH-ASSET-005",
+          "HYDRAULIC_PRESS",
+          "DEGRADED"
+        ]
+      ],
+      "execution_time_ms": 163.47,
+      "error_message": null
+    },
+    {
+      "name": "3. Fleet Health Distribution & KPI Metrics",
+      "query": "SELECT COUNT(*) as total, AVG(health_score) as avg_health, MIN(health_score) as min_health, MAX(health_score) as max_health FROM postgres.public.asset_current_state;",
+      "status": "SUCCESS",
+      "row_count": 1,
+      "columns": [
+        "total",
+        "avg_health",
+        "min_health",
+        "max_health"
+      ],
+      "sample_rows": [
+        [
+          28,
+          0.8664642857142858,
+          0.552,
+          1.0
+        ]
+      ],
+      "execution_time_ms": 141.22,
+      "error_message": null
+    },
+    {
+      "name": "4. High Failure Risk Asset Prognostics",
+      "query": "SELECT asset_id, failure_probability, predicted_rul_hours, health_state FROM postgres.public.asset_current_state WHERE failure_probability >= 0.50 ORDER BY failure_probability DESC;",
+      "status": "SUCCESS",
+      "row_count": 3,
+      "columns": [
+        "asset_id",
+        "failure_probability",
+        "predicted_rul_hours",
+        "health_state"
+      ],
+      "sample_rows": [
+        [
+          "GENERATOR-004",
+          0.698,
+          66.24,
+          "DEGRADED"
+        ],
+        [
+          "E2E-GEN-02",
+          0.542,
+          84.96,
+          "WATCH"
+        ],
+        [
+          "BENCH-ASSET-020",
+          0.509,
+          88.92,
+          "WATCH"
+        ]
+      ],
+      "execution_time_ms": 171.02,
+      "error_message": null
+    },
+    {
+      "name": "5. Multi-Sensor Operational Telemetry Aggregates",
+      "query": "SELECT asset_type, AVG(temperature) as avg_temp, AVG(vibration) as avg_vib, AVG(pressure) as avg_press FROM postgres.public.asset_current_state GROUP BY asset_type;",
+      "status": "SUCCESS",
+      "row_count": 5,
+      "columns": [
+        "asset_type",
+        "avg_temp",
+        "avg_vib",
+        "avg_press"
+      ],
+      "sample_rows": [
+        [
+          "CENTRIFUGAL_PUMP",
+          84.784,
+          3.378,
+          39.108
+        ],
+        [
+          "STEAM_GEN",
+          92.39666666666666,
+          4.680000000000001,
+          47.42666666666667
+        ],
+        [
+          "RECIP_COMPRESSOR",
+          81.124,
+          2.7139999999999995,
+          40.628
+        ],
+        [
+          "HYDRAULIC_PRESS",
+          84.464,
+          3.2079999999999997,
+          55.448
+        ],
+        [
+          "GAS_TURBINE",
+          77.77857142857144,
+          2.189285714285714,
+          31.935714285714287
+        ]
+      ],
+      "execution_time_ms": 146.42,
+      "error_message": null
+    },
+    {
+      "name": "6. Prescriptive Maintenance Ranking Queue",
+      "query": "SELECT ranking, asset_id, maintenance_priority, priority_score, recommended_action FROM postgres.public.maintenance_priority_queue ORDER BY ranking ASC;",
+      "status": "SUCCESS",
+      "row_count": 28,
+      "columns": [
+        "ranking",
+        "asset_id",
+        "maintenance_priority",
+        "priority_score",
+        "recommended_action"
+      ],
+      "sample_rows": [
+        [
+          1,
+          "GENERATOR-004",
+          "HIGH",
+          51.57,
+          "SCHEDULE EXPEDITED OVERHAUL: Component degradation detected (RUL: 66.2h)"
+        ],
+        [
+          2,
+          "E2E-GEN-02",
+          "MEDIUM",
+          37.53,
+          "SCHEDULE EXPEDITED OVERHAUL: Component degradation detected (RUL: 85.0h)"
+        ],
+        [
+          3,
+          "BENCH-ASSET-020",
+          "MEDIUM",
+          34.56,
+          "SCHEDULE EXPEDITED OVERHAUL: Component degradation detected (RUL: 88.9h)"
+        ],
+        [
+          4,
+          "PUMP-002",
+          "MEDIUM",
+          33.66,
+          "INSPECT WITHIN 48H: Early anomaly progression observed (Health: WATCH)"
+        ],
+        [
+          5,
+          "BENCH-ASSET-019",
+          "MEDIUM",
+          33.57,
+          "INSPECT WITHIN 48H: Early anomaly progression observed (Health: WATCH)"
+        ]
+      ],
+      "execution_time_ms": 154.68,
+      "error_message": null
+    },
+    {
+      "name": "7. Streaming Anomaly Alerts Audit",
+      "query": "SELECT severity, COUNT(*) as alert_count FROM postgres.public.asset_alert_history GROUP BY severity;",
+      "status": "SUCCESS",
+      "row_count": 2,
+      "columns": [
+        "severity",
+        "alert_count"
+      ],
+      "sample_rows": [
+        [
+          "HIGH",
+          12
+        ],
+        [
+          "WARNING",
+          132
+        ]
+      ],
+      "execution_time_ms": 166.04,
+      "error_message": null
+    },
+    {
+      "name": "8. Cross-Catalog TPCH Federated Baseline",
+      "query": "SELECT count(*) as tpch_customer_count FROM tpch.sf1.customer;",
+      "status": "SUCCESS",
+      "row_count": 1,
+      "columns": [
+        "tpch_customer_count"
+      ],
+      "sample_rows": [
+        [
+          150000
+        ]
+      ],
+      "execution_time_ms": 213.52,
+      "error_message": null
+    },
+    {
+      "name": "9. Executive Fleet KPI Snapshots",
+      "query": "SELECT total_assets, healthy_assets, critical_assets, fleet_health_score, avg_predicted_rul_hours FROM postgres.public.fleet_kpi_snapshots ORDER BY timestamp DESC LIMIT 1;",
+      "status": "SUCCESS",
+      "row_count": 1,
+      "columns": [
+        "total_assets",
+        "healthy_assets",
+        "critical_assets",
+        "fleet_health_score",
+        "avg_predicted_rul_hours"
+      ],
+      "sample_rows": [
+        [
+          28,
+          16,
+          0,
+          0.8665,
+          104.45
+        ]
+      ],
+      "execution_time_ms": 149.65,
+      "error_message": null
+    },
+    {
+      "name": "10. Historical Prognostic Progression Trajectory",
+      "query": "SELECT asset_id, COUNT(*) as prediction_points, AVG(failure_probability) as mean_fail_prob, AVG(predicted_rul_hours) as mean_rul FROM postgres.public.asset_prediction_history GROUP BY asset_id ORDER BY asset_id;",
+      "status": "SUCCESS",
+      "row_count": 28,
+      "columns": [
+        "asset_id",
+        "prediction_points",
+        "mean_fail_prob",
+        "mean_rul"
+      ],
+      "sample_rows": [
+        [
+          "BENCH-ASSET-001",
+          30,
+          0.01600000000000001,
+          118.07999999999996
+        ],
+        [
+          "BENCH-ASSET-002",
+          30,
+          0.020000000000000007,
+          117.59999999999994
+        ],
+        [
+          "BENCH-ASSET-003",
+          30,
+          0.025000000000000012,
+          117.0
+        ],
+        [
+          "BENCH-ASSET-004",
+          30,
+          0.03000000000000002,
+          116.40000000000006
+        ],
+        [
+          "BENCH-ASSET-005",
+          30,
+          0.03400000000000002,
+          115.92000000000004
+        ]
+      ],
+      "execution_time_ms": 186.48,
+      "error_message": null
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "phase": "Phase 4 - Modular Analytical SQL Layer Verification",
+  "generated_at": "2026-10-06T18:22:35.804716+00:00",
+  "total_sql_files": 7,
+  "total_queries_evaluated": 21,
+  "total_queries_passed": 21,
+  "files": [
+    {
+      "file": "01_fleet_health.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     COUNT(*) AS total_assets,     ROUND(AVG(health_score), 4) AS fleet_avg_health_score,     COUNT(CASE WHEN heal...",
+          "status": "SUCCESS",
+          "row_count": 1,
+          "execution_time_ms": 153.64,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "SELECT     asset_type,     operating_mode,     COUNT(*) AS asset_count,     ROUND(AVG(health_score), 4) AS avg_health_sc...",
+          "status": "SUCCESS",
+          "row_count": 11,
+          "execution_time_ms": 223.81,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "SELECT     asset_id,     asset_type,     operating_mode,     health_state,     ROUND(health_score, 3) AS health_score,  ...",
+          "status": "SUCCESS",
+          "row_count": 12,
+          "execution_time_ms": 203.81,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "02_predictive_maintenance.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     asset_id,     asset_type,     operating_mode,     ROUND(failure_probability, 4) AS failure_probability,     R...",
+          "status": "SUCCESS",
+          "row_count": 3,
+          "execution_time_ms": 157.28,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "SELECT     CASE         WHEN predicted_rul_hours < 24.0 THEN 'IMMEDIATE (< 24h)'         WHEN predicted_rul_hours BETWEE...",
+          "status": "SUCCESS",
+          "row_count": 2,
+          "execution_time_ms": 198.72,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "SELECT     ranking,     asset_id,     asset_type,     criticality,     health_state,     maintenance_priority,     prior...",
+          "status": "SUCCESS",
+          "row_count": 28,
+          "execution_time_ms": 188.61,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "03_asset_performance.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     operating_mode,     COUNT(*) AS total_samples,     ROUND(AVG(load), 2) AS avg_load_pct,     ROUND(AVG(tempera...",
+          "status": "SUCCESS",
+          "row_count": 3,
+          "execution_time_ms": 234.0,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "SELECT     asset_id,     asset_type,     operating_mode,     anomaly_level,     active_alert_count,     health_state,   ...",
+          "status": "SUCCESS",
+          "row_count": 12,
+          "execution_time_ms": 221.23,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "WITH FleetAverages AS (     SELECT         AVG(temperature) AS mean_temp,         STDDEV(temperature) AS std_temp,      ...",
+          "status": "SUCCESS",
+          "row_count": 2,
+          "execution_time_ms": 311.39,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "04_cross_asset_analysis.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     asset_type,     COUNT(*) AS total_units,     ROUND(AVG(health_score), 4) AS mean_health,     ROUND(MIN(health...",
+          "status": "SUCCESS",
+          "row_count": 5,
+          "execution_time_ms": 209.03,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "WITH AssetTypeCohort AS (     SELECT         asset_type,         AVG(health_score) AS cohort_avg_health,         AVG(fai...",
+          "status": "SUCCESS",
+          "row_count": 28,
+          "execution_time_ms": 258.5,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "SELECT     asset_type,     ROUND(VARIANCE(temperature), 2) AS var_temp,     ROUND(VARIANCE(vibration), 4) AS var_vib,   ...",
+          "status": "SUCCESS",
+          "row_count": 5,
+          "execution_time_ms": 179.58,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "05_scenario_analysis.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     'Conservative (Risk >= 0.35)' AS scenario_name,     COUNT(CASE WHEN failure_probability >= 0.35 THEN 1 END) A...",
+          "status": "SUCCESS",
+          "row_count": 3,
+          "execution_time_ms": 283.03,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "WITH Top3Urgent AS (     SELECT asset_id     FROM postgres.public.maintenance_priority_queue     ORDER BY ranking ASC   ...",
+          "status": "SUCCESS",
+          "row_count": 1,
+          "execution_time_ms": 211.96,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "SELECT     asset_id,     asset_type,     ROUND(predicted_rul_hours, 1) AS nominal_rul_hours,     ROUND(predicted_rul_hou...",
+          "status": "SUCCESS",
+          "row_count": 28,
+          "execution_time_ms": 170.42,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "06_time_based_analysis.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     asset_id,     date_trunc('minute', event_time) AS time_window,     ROUND(AVG(failure_probability), 4) AS avg_...",
+          "status": "SUCCESS",
+          "row_count": 107,
+          "execution_time_ms": 190.55,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "SELECT     severity,     COUNT(*) AS total_alerts,     COUNT(DISTINCT asset_id) AS distinct_assets_affected,     MIN(eve...",
+          "status": "SUCCESS",
+          "row_count": 2,
+          "execution_time_ms": 215.19,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "SELECT     timestamp,     total_assets,     healthy_assets,     critical_assets,     high_risk_assets,     ROUND(fleet_h...",
+          "status": "SUCCESS",
+          "row_count": 51,
+          "execution_time_ms": 188.44,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "07_operational_kpis.sql",
+      "queries_in_file": 3,
+      "passed_queries": 3,
+      "queries": [
+        {
+          "query_index": 1,
+          "sql_snippet": "SELECT     total_assets,     healthy_assets,     watch_assets,     degraded_assets,     critical_assets,     high_risk_a...",
+          "status": "SUCCESS",
+          "row_count": 1,
+          "execution_time_ms": 186.97,
+          "error": null
+        },
+        {
+          "query_index": 2,
+          "sql_snippet": "SELECT     asset_id,     asset_type,     operating_mode,     health_state,     ROUND(health_score, 3) AS health_score,  ...",
+          "status": "SUCCESS",
+          "row_count": 28,
+          "execution_time_ms": 170.56,
+          "error": null
+        },
+        {
+          "query_index": 3,
+          "sql_snippet": "SELECT     m.ranking,     m.asset_id,     m.maintenance_priority,     m.priority_score,     ROUND(m.health_score, 3) AS ...",
+          "status": "SUCCESS",
+          "row_count": 28,
+          "execution_time_ms": 140.63,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "status": "VERIFIED"
+}
