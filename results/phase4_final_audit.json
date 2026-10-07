@@ -1,18 +1,18 @@
 {
-  "audit_timestamp": "2026-10-07T10:42:39.447460+00:00",
+  "audit_timestamp": "2026-10-07T18:18:51.860979+00:00",
   "phase": "Phase 4: Lakehouse Serving, Trino Analytics & Operational Dashboards",
   "overall_status": "PASSED",
-  "audit_duration_seconds": 5.597,
+  "audit_duration_seconds": 5.48,
   "audits": {
     "postgres_serving_store": {
       "status": "PASSED",
       "table_counts": {
         "asset_current_state": 28,
-        "asset_prediction_history": 705,
-        "asset_alert_history": 162,
+        "asset_prediction_history": 725,
+        "asset_alert_history": 183,
         "asset_telemetry_summary": 0,
         "maintenance_priority_queue": 28,
-        "fleet_kpi_snapshots": 64
+        "fleet_kpi_snapshots": 71
       },
       "total_tables_verified": 6
     },
@@ -21,8 +21,8 @@
       "trino_health": true,
       "postgres_catalog_query": true,
       "tpch_catalog_query": true,
-      "postgres_query_latency_ms": 156.51950000005854,
-      "tpch_query_latency_ms": 401.272199999994
+      "postgres_query_latency_ms": 311.3682000002882,
+      "tpch_query_latency_ms": 435.9114000003501
     },
     "sql_analytics_queries": {
       "status": "PASSED",

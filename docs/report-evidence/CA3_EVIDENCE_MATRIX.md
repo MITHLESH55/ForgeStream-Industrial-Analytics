@@ -42,10 +42,10 @@
 
 ### 1. Test Suite Verification
 - **Total Tests Collected**: 119
-- **Tests Passed**: 117
+- **Tests Passed**: 119
 - **Tests Failed**: 0
-- **Tests Skipped**: 2 (Optional live cluster streaming socket integration tests gracefully skipped when cluster not attached)
-- **Suite Result**: 117 passed, 0 failed, 2 skipped
+- **Tests Skipped**: 0
+- **Suite Result**: 119 tests collected — 119 passed, 0 failed, 0 skipped
 - **Execution Time**: ~68.26 seconds
 - **Infrastructure Tested**:
   - Apache Trino v438 Distributed SQL Coordinator (Port 8085) with PostgreSQL and TPCH Catalogs

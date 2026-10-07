@@ -1,7 +1,7 @@
 {
   "phase": "Phase 4 - Lakehouse Serving, Trino Analytics & Operational Dashboards",
-  "timestamp": "2026-10-06T18:23:03.918706+00:00",
-  "total_duration_seconds": 2.02,
+  "timestamp": "2026-10-07T18:10:13.475309+00:00",
+  "total_duration_seconds": 23.66,
   "infrastructure": {
     "trino": {
       "url": "http://localhost:8085",
@@ -30,7 +30,7 @@
     "alerts_generated": 12
   },
   "kpi_summary": {
-    "timestamp": "2026-10-06T18:23:02.182729Z",
+    "timestamp": "2026-10-07T18:09:50.529057Z",
     "total_assets": 28,
     "healthy_assets": 16,
     "watch_assets": 11,
@@ -60,7 +60,7 @@
       "maintenance_priority": "HIGH",
       "priority_score": 51.57,
       "recommended_action": "SCHEDULE EXPEDITED OVERHAUL: Component degradation detected (RUL: 66.2h)",
-      "last_evaluated": "2026-10-06T18:23:02.083853Z"
+      "last_evaluated": "2026-10-07T18:09:50.392591Z"
     },
     {
       "ranking": 2,
@@ -74,7 +74,7 @@
       "maintenance_priority": "MEDIUM",
       "priority_score": 37.53,
       "recommended_action": "SCHEDULE EXPEDITED OVERHAUL: Component degradation detected (RUL: 85.0h)",
-      "last_evaluated": "2026-10-06T18:20:15.704431Z"
+      "last_evaluated": "2026-10-07T10:44:13.040618Z"
     },
     {
       "ranking": 3,
@@ -102,7 +102,7 @@
       "maintenance_priority": "MEDIUM",
       "priority_score": 33.66,
       "recommended_action": "INSPECT WITHIN 48H: Early anomaly progression observed (Health: WATCH)",
-      "last_evaluated": "2026-10-06T18:23:02.083853Z"
+      "last_evaluated": "2026-10-07T18:09:50.392591Z"
     },
     {
       "ranking": 5,
@@ -242,7 +242,7 @@
       "maintenance_priority": "LOW",
       "priority_score": 13.36,
       "recommended_action": "INCREASE TELEMETRY SAMPLING: Minor variance from baseline profile",
-      "last_evaluated": "2026-10-06T18:19:55.820925Z"
+      "last_evaluated": "2026-10-07T10:44:12.540146Z"
     },
     {
       "ranking": 15,
@@ -354,7 +354,7 @@
       "maintenance_priority": "LOW",
       "priority_score": 5.02,
       "recommended_action": "NORMAL OPERATION: Continue routine scheduled lubrication and monitoring",
-      "last_evaluated": "2026-10-06T18:23:02.083853Z"
+      "last_evaluated": "2026-10-07T18:09:50.392591Z"
     },
     {
       "ranking": 23,
@@ -410,7 +410,7 @@
       "maintenance_priority": "LOW",
       "priority_score": 3.49,
       "recommended_action": "NORMAL OPERATION: Continue routine scheduled lubrication and monitoring",
-      "last_evaluated": "2026-10-06T18:23:02.083853Z"
+      "last_evaluated": "2026-10-07T18:09:50.392591Z"
     },
     {
       "ranking": 27,
@@ -424,7 +424,7 @@
       "maintenance_priority": "LOW",
       "priority_score": 2.5,
       "recommended_action": "NORMAL OPERATION: Continue routine scheduled lubrication and monitoring",
-      "last_evaluated": "2026-10-06T18:20:15.704431Z"
+      "last_evaluated": "2026-10-07T10:44:13.040618Z"
     },
     {
       "ranking": 28,
@@ -438,7 +438,7 @@
       "maintenance_priority": "LOW",
       "priority_score": 2.5,
       "recommended_action": "NORMAL OPERATION: Continue routine scheduled lubrication and monitoring",
-      "last_evaluated": "2026-10-06T18:23:02.083853Z"
+      "last_evaluated": "2026-10-07T18:09:50.392591Z"
     }
   ],
   "trino_query_verification": {
