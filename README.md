@@ -13,7 +13,8 @@
 ![Postgres](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-10-F46800?logo=grafana&logoColor=white)
 
-B.Tech CSE (Sem VII) · Big Data Analytics (CA-3) · Symbiosis Institute of Technology, Pune
+B.Tech CSE 
+Symbiosis Institute of Technology, Pune
 
 </div>
 
